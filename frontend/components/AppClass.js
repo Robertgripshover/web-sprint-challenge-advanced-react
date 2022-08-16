@@ -17,6 +17,14 @@ export default class AppClass extends React.Component {
   // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
   // You can delete them and build your own logic from scratch.
 
+  state  = {
+    coordinates: (2, 2), 
+    message: '', 
+    movesX: 0,
+    movesY: 0,
+    board: ['', '', '', '', '', '', '', '', '']
+  } //only one state in a class component
+
   getXY = () => {
     // It it not necessary to have a state to track the coordinates.
     // It's enough to know what index the "B" is at, to be able to calculate them.
@@ -56,7 +64,7 @@ export default class AppClass extends React.Component {
     return (
       <div id="wrapper" className={className}>
         <div className="info">
-          <h3 id="coordinates">Coordinates (2, 2)</h3>
+          <h3 id="coordinates">{`${this.state.coordinates}`}Coordinates (2, 2)</h3>
           <h3 id="steps">You moved 0 times</h3>
         </div>
         <div id="grid">
