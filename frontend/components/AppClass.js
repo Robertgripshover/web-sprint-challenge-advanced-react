@@ -22,7 +22,7 @@ export default class AppClass extends React.Component {
     message: '', 
     movesX: 0,
     movesY: 0,
-    board: ['', '', '', '', '', '', '', '', ''],
+    board: ["", "", "", "", "", "", "", "", ""],
     totalMoves: 99
   } //only one state in a class component
 
@@ -65,7 +65,7 @@ export default class AppClass extends React.Component {
   //render runs on every state change, PLUS every load of the applicationVVV
   render() {
     const { className } = this.props
-    const { coordinates, totalMoves } = this.state
+    const { coordinates, totalMoves, board } = this.state
 
     return (
       <div id="wrapper" className={className}>
@@ -73,15 +73,32 @@ export default class AppClass extends React.Component {
           <h3 id="coordinates">{`${coordinates}`}</h3>
           <h3 id="steps">You moved {totalMoves} times</h3>
         </div>
+
+
         <div id="grid">
-          {
+          {board.map((val, idx) => {
+            return (
+              <div key={idx} className='square'>
+                {val}
+
+              </div>
+           );
+       })}
+
+{/*My added part^^^ */}
+
+          {/* {
             [0, 1, 2, 3, 4, 5, 6, 7, 8].map(idx => (
               <div key={idx} className={`square${idx === 4 ? ' active' : ''}`}>
                 {idx === 4 ? 'B' : null}
               </div>
             ))
-          }
+          } */}
+
+
         </div>
+
+
         <div className="info">
           <h3 id="message"></h3>
         </div>
