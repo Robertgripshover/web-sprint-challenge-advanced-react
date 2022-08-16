@@ -18,12 +18,14 @@ export default class AppClass extends React.Component {
   // You can delete them and build your own logic from scratch.
 
   state  = {
-    coordinates: (2, 2), 
+    coordinates: "Coordinates (4, 5)", 
     message: '', 
     movesX: 0,
     movesY: 0,
     board: ['', '', '', '', '', '', '', '', '']
   } //only one state in a class component
+
+
 
   getXY = () => {
     // It it not necessary to have a state to track the coordinates.
@@ -59,12 +61,15 @@ export default class AppClass extends React.Component {
     // Use a POST request to send a payload to the server.
   }
 
+  //render runs on every state change, PLUS every load of the applicationVVV
   render() {
     const { className } = this.props
+    const { coordinates } = this.state
+
     return (
       <div id="wrapper" className={className}>
         <div className="info">
-          <h3 id="coordinates">{`${this.state.coordinates}`}Coordinates (2, 2)</h3>
+          <h3 id="coordinates">{`${coordinates}`}</h3>
           <h3 id="steps">You moved 0 times</h3>
         </div>
         <div id="grid">
