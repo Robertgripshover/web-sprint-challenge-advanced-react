@@ -78,7 +78,7 @@ export default class AppClass extends React.Component {
         <div id="grid">
           {board.map((val, idx) => {
             return (
-              <div key={idx} className='square'>
+              <div key={idx} className={`square${val ? 'active' : ''}`}>
                 {val}
 
               </div>
