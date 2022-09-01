@@ -16,6 +16,7 @@ const initialState = {
 export default class AppClass extends React.Component {
 
   state = {
+    currentTurn: "you",
     coordinateX: 0,
     coordinateY: 0, 
     message: '', 
@@ -24,7 +25,6 @@ export default class AppClass extends React.Component {
   } 
 
 handleTurn = (idx) => {
-  console.log(idx)
 }
 
   getXY = (idx) => {
