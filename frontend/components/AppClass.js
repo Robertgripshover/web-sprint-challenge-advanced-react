@@ -14,8 +14,6 @@ const initialState = {
 }
 
 export default class AppClass extends React.Component {
-  // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
-  // You can delete them and build your own logic from scratch.
 
   state = {
     coordinateX: 0,
@@ -23,7 +21,7 @@ export default class AppClass extends React.Component {
     message: '', 
     board: ['', '', '', '', '', '', '', '', ''],
     totalMoves: 99
-  } //only one state in a class component
+  } 
 
 handleTurn = (idx) => {
   console.log(idx)
@@ -37,32 +35,25 @@ handleTurn = (idx) => {
     // It it not necessary to have a state to track the "Coordinates (2, 2)" message for the user.
     // You can use the `getXY` helper above to obtain the coordinates, and then `getXYMessage`
     // returns the fully constructed string.
-  }
-
+  } //dont think I need this one
   reset = () => {
        // Use this helper to reset all states to their initial values.
   }
-
   getNextIndex = (direction) => {
     // This helper takes a direction ("left", "up", etc) and calculates what the next index
     // of the "B" would be. If the move is impossible because we are at the edge of the grid,
     // this helper should return the current index unchanged.
   }
-
   move = (evt) => {
     // This event handler can use the helper above to obtain a new index for the "B",
     // and change any states accordingly.
   }
-
   onChange = (evt) => {
     // You will need this to update the value of the input.
   }
-
   onSubmit = (evt) => {
     // Use a POST request to send a payload to the server.
   }
-
-  //render runs on every state change, PLUS every load of the applicationVVV
   render() {
 
     const { className } = this.props
@@ -75,7 +66,6 @@ handleTurn = (idx) => {
           <h3 id="steps">You moved {totalMoves} times</h3>
         </div>
 
-
       <div id="grid">
 
           {
@@ -86,10 +76,7 @@ handleTurn = (idx) => {
           })}
            {/*need to make the squere withoutdthe be classname "square" and with the B classname "square active" and in the "square active I need to have "B" show up in 
           In the white part in between the two arrows like how the hard coded stuff is" */}
-
-
       </div>
-
 
         <div className="info">
           <h3 id="message"></h3>
