@@ -21,8 +21,6 @@ export default class AppClass extends React.Component {
     coordinateX: 0,
     coordinateY: 0, 
     message: '', 
-    movesX: 0,
-    movesY: 0,
     board: ['', '', '', '', '', '', '', '', ''],
     totalMoves: 99
   } //only one state in a class component
@@ -81,12 +79,12 @@ handleTurn = (idx) => {
       <div id="grid">
 
           {
-            board.map((val, idx) => (
-              <div key={idx} className={`square${idx === 1 ? ' active' : ''}`}>
-                {idx === 1 ? 'B' : null}
-              </div>
-            ))
-          } {/*need to make the squere without the be classname "square" and with the B classname "square active" and in the "square active I need to have "B" show up in 
+            board.map((val, idx) => {
+              return (
+                <div key={idx} className="square">{val}</div>
+              ) 
+          })}
+           {/*need to make the squere without the be classname "square" and with the B classname "square active" and in the "square active I need to have "B" show up in 
           In the white part in between the two arrows like how the hard coded stuff is" */}
 
 
