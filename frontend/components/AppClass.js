@@ -16,12 +16,11 @@ const initialState = {
 export default class AppClass extends React.Component {
 
   state = {
-    currentTurn: "you",
     coordinateX: 0,
     coordinateY: 0, 
     message: '', 
     board: ['', '', '', '', '', '', '', '', ''],
-    totalMoves: 99
+    totalMoves: 0
   } 
 
 handleTurn = (idx) => {
@@ -37,7 +36,13 @@ handleTurn = (idx) => {
     // returns the fully constructed string.
   } //dont think I need this one
   reset = () => {
-       // Use this helper to reset all states to their initial values.
+    this.setState({
+      coordinateX: 0,
+      coordinateY: 0, 
+      message: '', 
+      board: ['', '', '', '', '', '', '', '', ''],
+      totalMoves: 0
+    })
   }
   getNextIndex = (direction) => {
     // This helper takes a direction ("left", "up", etc) and calculates what the next index
@@ -86,7 +91,7 @@ handleTurn = (idx) => {
           <button id="up">UP</button>
           <button id="right">RIGHT</button>
           <button id="down">DOWN</button>
-          <button id="reset">reset</button>
+          <button onClick={this.reset} id="reset">reset</button>
         </div>
         <form>
           <input id="email" type="email" placeholder="type email"></input>
