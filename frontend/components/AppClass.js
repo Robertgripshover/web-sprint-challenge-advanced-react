@@ -81,10 +81,10 @@ handleTurn = (idx) => {
           {
             board.map((val, idx) => {
               return (
-                <div key={idx} className="square">{val}</div>
+                <div onClick={() => this.handleTurn(idx)} key={idx} className={`square${val ? ' active' : ''}`}>{val}</div>
               ) 
           })}
-           {/*need to make the squere without the be classname "square" and with the B classname "square active" and in the "square active I need to have "B" show up in 
+           {/*need to make the squere withoutdthe be classname "square" and with the B classname "square active" and in the "square active I need to have "B" show up in 
           In the white part in between the two arrows like how the hard coded stuff is" */}
 
 
