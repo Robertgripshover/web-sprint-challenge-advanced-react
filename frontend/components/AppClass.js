@@ -17,20 +17,22 @@ export default class AppClass extends React.Component {
   // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
   // You can delete them and build your own logic from scratch.
 
-  state  = {
-    coordinates: "Coordinates (4, 5)", 
+  state = {
+    coordinateX: 0,
+    coordinateY: 0, 
     message: '', 
     movesX: 0,
     movesY: 0,
-    board: ["", "", "", "", "", "", "", "", ""],
+    board: ['', '', '', '', '', '', '', '', ''],
     totalMoves: 99
   } //only one state in a class component
 
+handleTurn = (idx) => {
+  console.log(idx)
+}
 
-
-  getXY = () => {
-    // It it not necessary to have a state to track the coordinates.
-    // It's enough to know what index the "B" is at, to be able to calculate them.
+  getXY = (idx) => {
+    idx === 'B' ? 'active' : ''
   }
 
   getXYMessage = () => {
@@ -40,7 +42,7 @@ export default class AppClass extends React.Component {
   }
 
   reset = () => {
-    // Use this helper to reset all states to their initial values.
+       // Use this helper to reset all states to their initial values.
   }
 
   getNextIndex = (direction) => {
@@ -64,39 +66,31 @@ export default class AppClass extends React.Component {
 
   //render runs on every state change, PLUS every load of the applicationVVV
   render() {
+
     const { className } = this.props
-    const { coordinates, totalMoves, board } = this.state
+    const { coordinateX, coordinateY, totalMoves, board } = this.state
 
     return (
       <div id="wrapper" className={className}>
         <div className="info">
-          <h3 id="coordinates">{`${coordinates}`}</h3>
+          <h3 id="coordinates">{`Coordinates (${coordinateX}, ${coordinateY})`}</h3>
           <h3 id="steps">You moved {totalMoves} times</h3>
         </div>
 
 
-        <div id="grid">
-          {board.map((val, idx) => {
-            return (
-              <div key={idx} className={`square${val ? 'active' : ''}`}>
-                {val}
+      <div id="grid">
 
-              </div>
-           );
-       })}
-
-{/*My added part^^^ */}
-
-          {/* {
-            [0, 1, 2, 3, 4, 5, 6, 7, 8].map(idx => (
-              <div key={idx} className={`square${idx === 4 ? ' active' : ''}`}>
-                {idx === 4 ? 'B' : null}
+          {
+            board.map((val, idx) => (
+              <div key={idx} className={`square${idx === 1 ? ' active' : ''}`}>
+                {idx === 1 ? 'B' : null}
               </div>
             ))
-          } */}
+          } {/*need to make the squere without the be classname "square" and with the B classname "square active" and in the "square active I need to have "B" show up in 
+          In the white part in between the two arrows like how the hard coded stuff is" */}
 
 
-        </div>
+      </div>
 
 
         <div className="info">
