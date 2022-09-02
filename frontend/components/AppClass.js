@@ -1,5 +1,10 @@
 import React from 'react'
 
+//NOTES:::
+  //So just a little note for myself, I think that for moving the index of B left or right 
+  //you just need to add 1 to the index. BUT to go up or down, you need to add 4 to the index, 
+  //becuase that is going to make it 'jump' down the line. VERY INTERESTING! 
+
 // Suggested initial states
 const initialMessage = ''
 const initialEmail = ''
@@ -16,7 +21,7 @@ const initialState = {
 export default class AppClass extends React.Component {
 
   state = {
-    indexOfB: 0, 
+    indexOfB: 4, 
     message: '', 
     board: ['', '', '', '', '', '', '', '', ''],
     totalMoves: 0
@@ -28,28 +33,32 @@ handleTurn = (idx) => {
   getXY = (idx) => {
     idx === 'B' ? 'active' : ''
   }
-  //So just a little note for myself, I think that for moving the index of B left or right 
-  //you just need to add 1 to the index. BUT to go up or down, you need to add 4 to the index, 
-  //becuase that is going to make it 'jump' down the line. VERY INTERESTING! 
 
   getXYMessage = () => {
     // It it not necessary to have a state to track the "Coordinates (2, 2)" message for the user.
     // You can use the `getXY` helper above to obtain the coordinates, and then `getXYMessage`
     // returns the fully constructed string.
-  } //dont think I need this one
+
+    //
+  } 
   reset = () => {
     this.setState({
-      coordinateX: 0,
-      coordinateY: 0, 
+      indexOfB: 0,  
       message: '', 
       board: ['', '', '', '', '', '', '', '', ''],
       totalMoves: 0
     })
   }
   getNextIndex = (direction) => {
+    
     // This helper takes a direction ("left", "up", etc) and calculates what the next index
     // of the "B" would be. If the move is impossible because we are at the edge of the grid,
     // this helper should return the current index unchanged.
+
+    //if "left" idx -1 
+    // if "right" idx + 1
+    //if "down" idx +4 
+    //if "up" idx -4
   }
   move = (evt) => {
     // This event handler can use the helper above to obtain a new index for the "B",
