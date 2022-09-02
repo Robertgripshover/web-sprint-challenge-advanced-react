@@ -22,6 +22,7 @@ export default class AppClass extends React.Component {
 
   state = {
     indexOfB: 4, 
+    coordinates: '',
     message: '', 
     board: ['', '', '', '', '', '', '', '', ''],
     totalMoves: 0
@@ -31,8 +32,17 @@ handleTurn = (idx) => {
 }
 
   getXY = (idx) => {
-    idx === 'B' ? 'active' : ''
-  }
+    if (idx === 0) {return "Coordinates (1,3)"}
+    if (idx === 1) {return "Coordinates (2,3)"}
+    if (idx === 2) {return "Coordinates (3,3)"}
+    if (idx === 3) {return "Coordinates (1,2)"}
+    if (idx === 4) {return "Coordinates (2,2)"}
+    if (idx === 5) {return "Coordinates (3,2)"}
+    if (idx === 6) {return "Coordinates (1,1)"}
+    if (idx === 7) {return "Coordinates (2,1)"}
+    if (idx === 8) {return "Coordinates (3,1)"}
+  }//this is looking at where the B is at and returning a string stating what part of the "grid"
+  //that the idx is at. I dont think that the If statement logic is set up correctly yet. 
 
   getXYMessage = () => {
     // It it not necessary to have a state to track the "Coordinates (2, 2)" message for the user.
