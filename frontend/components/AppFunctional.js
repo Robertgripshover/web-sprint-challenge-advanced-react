@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {useState} from 'react'
+
 
 // Suggested initial states
 const initialMessage = ''
@@ -7,6 +8,8 @@ const initialSteps = 0
 const initialIndex = 4 // the index the "B" is at
 
 export default function AppFunctional(props) {
+
+  const [state, setState] = useState()
   // THE FOLLOWING HELPERS ARE JUST RECOMMENDATIONS.
   // You can delete them and build your own logic from scratch.
 
@@ -44,6 +47,7 @@ export default function AppFunctional(props) {
     // Use a POST request to send a payload to the server.
   }
 
+  
   return (
     <div id="wrapper" className={props.className}>
       <div className="info">

@@ -16,8 +16,7 @@ const initialState = {
 export default class AppClass extends React.Component {
 
   state = {
-    coordinateX: 0,
-    coordinateY: 0, 
+    indexOfB: 0, 
     message: '', 
     board: ['', '', '', '', '', '', '', '', ''],
     totalMoves: 0
@@ -29,6 +28,9 @@ handleTurn = (idx) => {
   getXY = (idx) => {
     idx === 'B' ? 'active' : ''
   }
+  //So just a little note for myself, I think that for moving the index of B left or right 
+  //you just need to add 1 to the index. BUT to go up or down, you need to add 4 to the index, 
+  //becuase that is going to make it 'jump' down the line. VERY INTERESTING! 
 
   getXYMessage = () => {
     // It it not necessary to have a state to track the "Coordinates (2, 2)" message for the user.
