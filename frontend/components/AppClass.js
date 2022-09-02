@@ -22,25 +22,22 @@ export default class AppClass extends React.Component {
 
   state = {
     indexOfB: 4, 
-    coordinates: '',
+    coordinates: '( , )',
     message: '', 
-    board: ['', '', '', '', '', '', '', '', ''],
+    board: ['', 'B', '', '', '', '', '', '', ''],
     totalMoves: 0
   } 
 
-handleTurn = (idx) => {
-}
-
-  getXY = (idx) => {
-    if (idx === 0) {return "Coordinates (1,3)"}
-    if (idx === 1) {return "Coordinates (2,3)"}
-    if (idx === 2) {return "Coordinates (3,3)"}
-    if (idx === 3) {return "Coordinates (1,2)"}
-    if (idx === 4) {return "Coordinates (2,2)"}
-    if (idx === 5) {return "Coordinates (3,2)"}
-    if (idx === 6) {return "Coordinates (1,1)"}
-    if (idx === 7) {return "Coordinates (2,1)"}
-    if (idx === 8) {return "Coordinates (3,1)"}
+  getXY = (indexOfB) => {
+    if (indexOfB === 0) {return "(1,3)"}
+    if (indexOfB === 1) {return "(2,3)"}
+    if (indexOfB === 2) {return "(3,3)"}
+    if (indexOfB === 3) {return "(1,2)"}
+    if (indexOfB === 4) {return "(2,2)"}
+    if (indexOfB === 5) {return "(3,2)"}
+    if (indexOfB === 6) {return "(1,1)"}
+    if (indexOfB === 7) {return "(2,1)"}
+    if (indexOfB === 8) {return "(3,1)"}
   }//this is looking at where the B is at and returning a string stating what part of the "grid"
   //that the idx is at. I dont think that the If statement logic is set up correctly yet. 
 
@@ -59,17 +56,27 @@ handleTurn = (idx) => {
       totalMoves: 0
     })
   }
-  getNextIndex = (direction) => {
-    
+
     // This helper takes a direction ("left", "up", etc) and calculates what the next index
     // of the "B" would be. If the move is impossible because we are at the edge of the grid,
     // this helper should return the current index unchanged.
 
-    //if "left" idx -1 
-    // if "right" idx + 1
-    //if "down" idx +4 
-    //if "up" idx -4
+  goRight = (indexOfB) => {
+    indexOfB + 1
   }
+
+  goLeft = (indexOfB) => {
+    indexOfB -1
+  }
+
+  goUp = (indexOfB) => {
+    indexOfB -4
+  }
+
+  goDown = (indexOfB) => {
+    indexOfB + 4
+  }
+
   move = (evt) => {
     // This event handler can use the helper above to obtain a new index for the "B",
     // and change any states accordingly.
@@ -83,12 +90,12 @@ handleTurn = (idx) => {
   render() {
 
     const { className } = this.props
-    const { coordinateX, coordinateY, totalMoves, board } = this.state
+    const { coordinates, totalMoves, board, indexOfB } = this.state
 
     return (
       <div id="wrapper" className={className}>
         <div className="info">
-          <h3 id="coordinates">{`Coordinates (${coordinateX}, ${coordinateY})`}</h3>
+          <h3 id="coordinates">{`Coordinates ${coordinates}`}</h3>
           <h3 id="steps">You moved {totalMoves} times</h3>
         </div>
 
@@ -108,10 +115,10 @@ handleTurn = (idx) => {
           <h3 id="message"></h3>
         </div>
         <div id="keypad">
-          <button id="left">LEFT</button>
-          <button id="up">UP</button>
-          <button id="right">RIGHT</button>
-          <button id="down">DOWN</button>
+          <button onClick={() => this.goLeft(indexOfB)} id="left">LEFT</button>
+          <button onClick={() => this.goUp(indexOfB)} id="up">UP</button>
+          <button onClick={() => this.goRight(indexOfB)} id="right">RIGHT</button>
+          <button onClick={() => this.goDown(indexOfB)} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
         </div>
         <form>
