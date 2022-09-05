@@ -21,25 +21,27 @@ const initialState = {
 export default class AppClass extends React.Component {
 
   state = {
-    indexOfB: 4, 
-    coordinates: 0,
+    indexOfB: 8, 
+    coordinates: '',
     message: '', 
-    board: ['', 'B', '', '', '', '', '', '', ''],
+    board: ['B', '', '', '', '', '', '', '', ''],
     totalMoves: 0
   } 
 
-  getXY = (indexOfB) => {
-    if (indexOfB === 0) {return "(1,3)"}
-    if (indexOfB === 1) {return "(2,3)"}
-    if (indexOfB === 2) {return "(3,3)"}
-    if (indexOfB === 3) {return "(1,2)"}
-    if (indexOfB === 4) {return "(2,2)"}
-    if (indexOfB === 5) {return "(3,2)"}
-    if (indexOfB === 6) {return "(1,1)"}
-    if (indexOfB === 7) {return "(2,1)"}
-    if (indexOfB === 8) {return "(3,1)"}
+  getXY = (indexOfB, coordinates) => {
+    if (indexOfB === 0) {return coordinates = "(1,3)"}
+    if (indexOfB === 1) {return coordinates = "(2,3)"}
+    if (indexOfB === 2) {return coordinates = "(3,3)"}
+    if (indexOfB === 3) {return coordinates = "(1,2)"}
+    if (indexOfB === 4) {return coordinates = "(2,2)"}
+    if (indexOfB === 5) {return coordinates = "(3,2)"}
+    if (indexOfB === 6) {return coordinates = "(1,1)"}
+    if (indexOfB === 7) {return coordinates = "(2,1)"}
+    if (indexOfB === 8) {return coordinates = "(3,1)"}
   }//this is looking at where the B is at and returning a string stating what part of the "grid"
   //that the idx is at. I dont think that the If statement logic is set up correctly yet. 
+
+  
 
   getXYMessage = () => {
     // It it not necessary to have a state to track the "Coordinates (2, 2)" message for the user.
@@ -62,7 +64,7 @@ export default class AppClass extends React.Component {
     // this helper should return the current index unchanged.
 
   goRight = (indexOfB) => {
-    indexOfB + 1
+    this.indexOfB + 1
     console.log(indexOfB)
     return indexOfB
     
@@ -101,7 +103,7 @@ export default class AppClass extends React.Component {
     return (
       <div id="wrapper" className={className}>
         <div className="info">
-          <h3 id="coordinates">{`Coordinates ${coordinates}`}</h3>
+          <h3 id="coordinates">{`Coordinates ${this.getXY(indexOfB)}`}</h3>
           <h3 id="steps">You moved {totalMoves} times</h3>
         </div>
 
