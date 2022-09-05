@@ -21,11 +21,12 @@ const initialState = {
 export default class AppClass extends React.Component {
 
   state = {
-    indexOfB: 0, 
+    indexOfB: 4, 
     coordinates: '',
     message: '', 
-    board: ['', '', '', 'B', '', '', '', '', ''],
-    totalMoves: 0
+    board: ['', '', '', '', 'B', '', '', '', ''],
+    totalMoves: 0,
+    direction: ''
   } 
 
 
@@ -44,25 +45,24 @@ export default class AppClass extends React.Component {
       if(index  === 8 && index === 'B') {return indexOfB = 8}      
      }) 
 
-      console.log(index)
-      return indexOfB
   } //trying to make this function take the current index in the 'B' is at in the 'board'
   //and then use that to update the indexOfB
 
   //this VVV getXY function is working!!
   getXY = (indexOfB, coordinates) => {
-    if (indexOfB === 0) {return coordinates = "(1,3)"}
-    if (indexOfB === 1) {return coordinates = "(2,3)"}
-    if (indexOfB === 2) {return coordinates = "(3,3)"}
-    if (indexOfB === 3) {return coordinates = "(1,2)"}
-    if (indexOfB === 4) {return coordinates = "(2,2)"}
-    if (indexOfB === 5) {return coordinates = "(3,2)"}
-    if (indexOfB === 6) {return coordinates = "(1,1)"}
-    if (indexOfB === 7) {return coordinates = "(2,1)"}
-    if (indexOfB === 8) {return coordinates = "(3,1)"}
+    if (indexOfB === 0) {return coordinates = "(1, 3)"}
+    if (indexOfB === 1) {return coordinates = "(2, 3)"}
+    if (indexOfB === 2) {return coordinates = "(3, 3)"}
+    if (indexOfB === 3) {return coordinates = "(1, 2)"}
+    if (indexOfB === 4) {return coordinates = "(2, 2)"}
+    if (indexOfB === 5) {return coordinates = "(3, 2)"}
+    if (indexOfB === 6) {return coordinates = "(1, 1)"}
+    if (indexOfB === 7) {return coordinates = "(2, 1)"}
+    if (indexOfB === 8) {return coordinates = "(3, 1)"}
   }//this is looking at where the B is at and returning a string stating what part of the "grid"
   //that the idx is at. I dont think that the If statement logic is set up correctly yet. 
   //this ^^^ getXY function is working!!
+  //this above function is looking at what the indexOfB is and simply updating the coordinates accordingly
 
   
   reset = () => {
@@ -78,29 +78,21 @@ export default class AppClass extends React.Component {
     // of the "B" would be. If the move is impossible because we are at the edge of the grid,
     // this helper should return the current index unchanged.
 
-  goRight = (indexOfB) => {
-    this.indexOfB + 1
-    console.log(indexOfB)
-    return indexOfB
-  }
-
-  goLeft = (indexOfB) => {
-    indexOfB -1
-    return indexOfB
-  }
-
-  goUp = (indexOfB) => {
-    indexOfB -4
-    return indexOfB
-  }
-
-  goDown = (indexOfB) => {
-    indexOfB + 4
-    return indexOfB
+  getDirection = (direction, indexOfB) => {
+    if (direction === 'right' && indexOfB < 7) {return indexOfB + 1}
+    if (direction === 'right' && indexOfB === 8) {return indexOfB}
+    if (direction === 'left' && indexOfB > 1) {return indexOfB - 1}
+    if (direction === 'left' && indexOfB === 0) {return indexOfB}
+    if (direction === 'up' && indexOfB > 4) {return indexOfB - 4}
+    if (direction === 'up' && indexOfB < 4) {return indexOfB}
+    if (direction === 'down' && indexOfB < 4) {return indexOfB + 4}
+    if (direction === 'down' && indexOfB > 4) {return indexOfB}
   }
 
   move = (evt) => {
-    // This event handler can use the helper above to obtain a new index for the "B",
+
+    
+     // This event handler can use the helper above to obtain a new index for the "B",
     // and change any states accordingly.
   }
   onChange = (evt) => {
@@ -112,7 +104,7 @@ export default class AppClass extends React.Component {
   render() {
 
     const { className } = this.props
-    const { coordinates, totalMoves, board, indexOfB } = this.state
+    const { coordinates, totalMoves, board, indexOfB, direction } = this.state
 
     return (
       <div id="wrapper" className={className}>
@@ -126,7 +118,7 @@ export default class AppClass extends React.Component {
           {
             board.map((val, idx) => {
               return (
-                <div onClick={() => this.handleTurn(idx)} key={idx} className={`square${val ? ' active' : ''}`}>{val}</div>
+                <div key={idx} className={`square${val ? ' active' : ''}`}>{val}</div>
               ) 
           })}
            {/*need to make the squere withoutdthe be classname "square" and with the B classname "square active" and in the "square active I need to have "B" show up in 
@@ -137,10 +129,10 @@ export default class AppClass extends React.Component {
           <h3 id="message"></h3>
         </div>
         <div id="keypad">
-          <button onClick={() => this.goLeft(indexOfB)} id="left">LEFT</button>
-          <button onClick={() => this.goUp(indexOfB)} id="up">UP</button>
-          <button onClick={() => this.goRight(indexOfB)} id="right">RIGHT</button>
-          <button onClick={() => this.goDown(indexOfB)} id="down">DOWN</button>
+          <button onClick={() => this.move()} id="left">LEFT</button>
+          <button onClick={() => this.move()} id="up">UP</button>
+          <button onClick={() => this.move()} id="right">RIGHT</button>
+          <button onClick={() => this.move()} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
         </div>
         <form>
