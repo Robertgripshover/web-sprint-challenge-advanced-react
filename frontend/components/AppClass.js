@@ -22,7 +22,7 @@ export default class AppClass extends React.Component {
 
   state = {
     indexOfB: 4, 
-    coordinates: '( , )',
+    coordinates: 0,
     message: '', 
     board: ['', 'B', '', '', '', '', '', '', ''],
     totalMoves: 0
@@ -50,9 +50,9 @@ export default class AppClass extends React.Component {
   } 
   reset = () => {
     this.setState({
-      indexOfB: 0,  
+      indexOfB: 4,  
       message: '', 
-      board: ['', '', '', '', '', '', '', '', ''],
+      board: ['', '', '', '', 'B', '', '', '', ''],
       totalMoves: 0
     })
   }
@@ -63,18 +63,24 @@ export default class AppClass extends React.Component {
 
   goRight = (indexOfB) => {
     indexOfB + 1
+    console.log(indexOfB)
+    return indexOfB
+    
   }
 
   goLeft = (indexOfB) => {
     indexOfB -1
+    return indexOfB
   }
 
   goUp = (indexOfB) => {
     indexOfB -4
+    return indexOfB
   }
 
   goDown = (indexOfB) => {
     indexOfB + 4
+    return indexOfB
   }
 
   move = (evt) => {
