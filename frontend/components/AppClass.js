@@ -78,15 +78,15 @@ export default class AppClass extends React.Component {
     // of the "B" would be. If the move is impossible because we are at the edge of the grid,
     // this helper should return the current index unchanged.
 
-  getDirection = (direction, indexOfB) => {
+  getDirection = (direction, indexOfB, message) => {
     if (direction === 'right' && indexOfB < 7) {return indexOfB + 1}
-    if (direction === 'right' && indexOfB === 8) {return indexOfB}
+    if (direction === 'right' && indexOfB === 8) {return message = 'You cannot move right more'}
     if (direction === 'left' && indexOfB > 1) {return indexOfB - 1}
-    if (direction === 'left' && indexOfB === 0) {return indexOfB}
+    if (direction === 'left' && indexOfB === 0) {return message = 'You cannot move left more'}
     if (direction === 'up' && indexOfB > 4) {return indexOfB - 4}
-    if (direction === 'up' && indexOfB < 4) {return indexOfB}
+    if (direction === 'up' && indexOfB < 4) {return message = 'You cannot move up more'}
     if (direction === 'down' && indexOfB < 4) {return indexOfB + 4}
-    if (direction === 'down' && indexOfB > 4) {return indexOfB}
+    if (direction === 'down' && indexOfB > 4) {return message = 'You cannot move down more'}
   }
 
   move = (evt) => {
@@ -104,7 +104,7 @@ export default class AppClass extends React.Component {
   render() {
 
     const { className } = this.props
-    const { coordinates, totalMoves, board, indexOfB, direction } = this.state
+    const { coordinates, totalMoves, board, indexOfB, direction, message } = this.state
 
     return (
       <div id="wrapper" className={className}>
@@ -126,7 +126,7 @@ export default class AppClass extends React.Component {
       </div>
 
         <div className="info">
-          <h3 id="message"></h3>
+          <h3 id="message">{`${this.getDirection(message)}`}</h3>
         </div>
         <div id="keypad">
           <button onClick={() => this.move()} id="left">LEFT</button>
