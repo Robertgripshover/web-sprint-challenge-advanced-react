@@ -21,13 +21,35 @@ const initialState = {
 export default class AppClass extends React.Component {
 
   state = {
-    indexOfB: 8, 
+    indexOfB: 0, 
     coordinates: '',
     message: '', 
-    board: ['B', '', '', '', '', '', '', '', ''],
+    board: ['', '', '', 'B', '', '', '', '', ''],
     totalMoves: 0
   } 
 
+
+
+  //this function is not working yet VVV
+  updateIndexOfB = (board, indexOfB) => {
+     board.map((index) => {
+      if(index  === 0 && index === 'B') {return indexOfB = 0}
+      if(index  === 1 && index === 'B') {return indexOfB = 1}
+      if(index  === 2 && index === 'B') {return indexOfB = 2}
+      if(index  === 3 && index === 'B') {return indexOfB = 3}
+      if(index  === 4 && index === 'B') {return indexOfB = 4}
+      if(index  === 5 && index === 'B') {return indexOfB = 5}
+      if(index  === 6 && index === 'B') {return indexOfB = 6}
+      if(index  === 7 && index === 'B') {return indexOfB = 7}
+      if(index  === 8 && index === 'B') {return indexOfB = 8}      
+     }) 
+
+      console.log(index)
+      return indexOfB
+  } //trying to make this function take the current index in the 'B' is at in the 'board'
+  //and then use that to update the indexOfB
+
+  //this VVV getXY function is working!!
   getXY = (indexOfB, coordinates) => {
     if (indexOfB === 0) {return coordinates = "(1,3)"}
     if (indexOfB === 1) {return coordinates = "(2,3)"}
@@ -40,16 +62,9 @@ export default class AppClass extends React.Component {
     if (indexOfB === 8) {return coordinates = "(3,1)"}
   }//this is looking at where the B is at and returning a string stating what part of the "grid"
   //that the idx is at. I dont think that the If statement logic is set up correctly yet. 
+  //this ^^^ getXY function is working!!
 
   
-
-  getXYMessage = () => {
-    // It it not necessary to have a state to track the "Coordinates (2, 2)" message for the user.
-    // You can use the `getXY` helper above to obtain the coordinates, and then `getXYMessage`
-    // returns the fully constructed string.
-
-    //
-  } 
   reset = () => {
     this.setState({
       indexOfB: 4,  
@@ -67,7 +82,6 @@ export default class AppClass extends React.Component {
     this.indexOfB + 1
     console.log(indexOfB)
     return indexOfB
-    
   }
 
   goLeft = (indexOfB) => {
