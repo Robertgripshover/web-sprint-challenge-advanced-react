@@ -29,24 +29,30 @@ export default class AppClass extends React.Component {
     direction: ''
   } 
 
+handleClick = (direction) => {
+  if(direction = 'up') {return indexOfB - 4}
+  if(direction = 'down') {return indexOfB + 4}
+  if(direction = 'left') {return indexOfB - 1}
+  if(direction = 'right') {return indexOfB + 1}
+} //9-6-22 I need to try and make sure to make the indexOfB stateful
 
 
-  //this function is not working yet VVV
-  updateIndexOfB = (board, indexOfB) => {
-     board.map((index) => {
-      if(index  === 0 && index === 'B') {return indexOfB = 0}
-      if(index  === 1 && index === 'B') {return indexOfB = 1}
-      if(index  === 2 && index === 'B') {return indexOfB = 2}
-      if(index  === 3 && index === 'B') {return indexOfB = 3}
-      if(index  === 4 && index === 'B') {return indexOfB = 4}
-      if(index  === 5 && index === 'B') {return indexOfB = 5}
-      if(index  === 6 && index === 'B') {return indexOfB = 6}
-      if(index  === 7 && index === 'B') {return indexOfB = 7}
-      if(index  === 8 && index === 'B') {return indexOfB = 8}      
-     }) 
+  // //this function is not working yet VVV
+  // updateIndexOfB = (board, indexOfB) => {
+  //    board.map((index) => {
+  //     if(index  === 0 && index === 'B') {return indexOfB = 0}
+  //     else if(index  === 1 && index === 'B') {return indexOfB = 1}
+  //     else if(index  === 2 && index === 'B') {return indexOfB = 2}
+  //     else if(index  === 3 && index === 'B') {return indexOfB = 3}
+  //     else if(index  === 4 && index === 'B') {return indexOfB = 4}
+  //     else if(index  === 5 && index === 'B') {return indexOfB = 5}
+  //     else if(index  === 6 && index === 'B') {return indexOfB = 6}
+  //     else if(index  === 7 && index === 'B') {return indexOfB = 7}
+  //     else if(index  === 8 && index === 'B') {return indexOfB = 8}      
+  //    }) 
 
-  } //trying to make this function take the current index in the 'B' is at in the 'board'
-  //and then use that to update the indexOfB
+  // } //trying to make this function take the current index in the 'B' is at in the 'board'
+  // //and then use that to update the indexOfB
 
   //this VVV getXY function is working!!
   getXY = (indexOfB, coordinates) => {
@@ -72,6 +78,7 @@ export default class AppClass extends React.Component {
       board: ['', '', '', '', 'B', '', '', '', ''],
       totalMoves: 0
     })
+    console.log('resetting!')
   }
 
     // This helper takes a direction ("left", "up", etc) and calculates what the next index
@@ -89,10 +96,26 @@ export default class AppClass extends React.Component {
     if (direction === 'down' && indexOfB > 4) {return message = 'You cannot move down more'}
   }
 
+  goRight = () => {
+    this.getDirection()
+    return console.log('moving right!')
+  }
+
+  goLeft = () => {
+    return console.log('moving left!')
+  }
+
+  goUp = () => {
+    return console.log('moving up!')
+  }
+
+  goDown = () => {
+    return console.log('moving down!')
+  }
+
   move = (evt) => {
 
-    
-     // This event handler can use the helper above to obtain a new index for the "B",
+    // This event handler can use the helper above to obtain a new index for the "B",
     // and change any states accordingly.
   }
   onChange = (evt) => {
@@ -126,14 +149,14 @@ export default class AppClass extends React.Component {
       </div>
 
         <div className="info">
-          <h3 id="message">{`${this.getDirection(message)}`}</h3>
+          <h3 id="message">{`${this.getDirection(message)}`}</h3> {/*for some reason at the moment this message is just returning 'undefined' */}
         </div>
         <div id="keypad">
-          <button onClick={() => this.move()} id="left">LEFT</button>
-          <button onClick={() => this.move()} id="up">UP</button>
-          <button onClick={() => this.move()} id="right">RIGHT</button>
-          <button onClick={() => this.move()} id="down">DOWN</button>
-          <button onClick={this.reset} id="reset">reset</button>
+          <button onClick={() => this.handleClick()} id="left">LEFT</button>
+          <button  id="up">UP</button>
+          <button  id="right">RIGHT</button>
+          <button  id="down">DOWN</button>
+          <button  id="reset">reset</button>
         </div>
         <form>
           <input id="email" type="email" placeholder="type email"></input>
