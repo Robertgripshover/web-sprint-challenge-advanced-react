@@ -10,14 +10,26 @@ import React from 'react'
 
 export default class AppClass extends React.Component {
 
-  state = {
-    indexOfB: 4, 
-    coordinates: '',
-    message: '', 
-    board: ['', '', '', '', '', '', '', '', ''],
-    totalMoves: 0,
-    direction: ''
-  } 
+  constructor() {
+    super()
+    this.state = {
+      indexOfB: 4, 
+      coordinates: '',
+      message: '', 
+      board: ['', '', '', '', '', '', '', '', ''],
+      totalMoves: 0,
+      direction: ''
+    }
+  }
+
+  // state = {
+  //   indexOfB: 4, 
+  //   coordinates: '',
+  //   message: '', 
+  //   board: ['', '', '', '', '', '', '', '', ''],
+  //   totalMoves: 0,
+  //   direction: ''
+  // } 
 
   //this VVV getXY function is working
   getXY = (indexOfB, coordinates) => {
