@@ -86,8 +86,19 @@ export default class AppClass extends React.Component {
     // of the "B" would be. If the move is impossible because we are at the edge of the grid,
     // this helper should return the current index unchanged.
 
-  getNextIndex = (direction) => {
-    if (direction === 'left') {return this.setState({...this.state, indexOfB: - 1})}
+
+    //9-16-2022 Friday, it looks like if I could use state to update the 'board' array each time I 
+    //I do 
+    // array.push(array.shift()); <--- moves the first item to the last
+    // array.unshift(array.pop()); <--- moves the last item to the first 
+    //I could use a combo of those to make the 'B' move around the array. 
+    //If I wanted the 'B' to move once I would only need to do it once, 
+    //If I wanted it to go 'up' or 'down' that would need me to be moving 
+    //the 'B' by 4 units. I might be able to do this by running the push 
+    //and pop functions 4 times. Might have to ask about this! 
+
+  getNextIndex = (direction, board) => {
+    if (direction === 'left') {return this.setState({...this.state, indexOfB: -1})}
     else if (direction === 'right') {return this.setState({...this.state, indexOfB: + 1})} 
     else if (direction === 'down') {return this.setState({...this.state, indexOfB: + 4})} 
     else if (direction === 'up') {return this.setState({...this.state, indexOfB: - 4})}  
