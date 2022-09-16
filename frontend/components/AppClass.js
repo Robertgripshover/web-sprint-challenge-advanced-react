@@ -18,51 +18,59 @@ export default class AppClass extends React.Component {
     }
   }
 
-  getIndexOfB = () => {
-
+  getIndexOfB = (board) => {
+    board.indexOf(0, 'B')
   }
+
+ 
 
   moveRight = (indexOfB) => {
     this.setState({ ...this.state, indexOfB: indexOfB + 1})
     console.log(indexOfB)
   }
 
+  newGetXY = () => {
+
+  }
+
   //this VVV getXY function is working
-  // getXY = (indexOfB, coordinates) => {
-  //   if (indexOfB === 0) {return coordinates = "(1, 1)"}
-  //   if (indexOfB === 1) {return coordinates = "(2, 1)"}
-  //   if (indexOfB === 2) {return coordinates = "(3, 1)"}
-  //   if (indexOfB === 3) {return coordinates = "(1, 2)"}
-  //   if (indexOfB === 4) {return coordinates = "(2, 2)"}
-  //   if (indexOfB === 5) {return coordinates = "(3, 2)"}
-  //   if (indexOfB === 6) {return coordinates = "(1, 3)"}
-  //   if (indexOfB === 7) {return coordinates = "(2, 3)"}
-  //   if (indexOfB === 8) {return coordinates = "(3, 3)"}
-  // } THIS FUNCTION IS WORKING! AFTER EXPERIMINTATTION JUST LET ME KNOW!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+  getXY = (indexOfB, coordinates) => {
+    if (indexOfB === 0) {return coordinates = "(1, 1)"}
+    if (indexOfB === 1) {return coordinates = "(2, 1)"}
+    if (indexOfB === 2) {return coordinates = "(3, 1)"}
+    if (indexOfB === 3) {return coordinates = "(1, 2)"}
+    if (indexOfB === 4) {return coordinates = "(2, 2)"}
+    if (indexOfB === 5) {return coordinates = "(3, 2)"}
+    if (indexOfB === 6) {return coordinates = "(1, 3)"}
+    if (indexOfB === 7) {return coordinates = "(2, 3)"}
+    if (indexOfB === 8) {return coordinates = "(3, 3)"}
+  } 
 
-  getXY = (indexOfB, xCoordinate, yCoordinate) => {
-    if (indexOfB === 0) {return xCoordinate === 1 && yCoordinate === 1}
-    else if (indexOfB === 1) {return xCoordinate === 2 && yCoordinate === 1}
-    else if (indexOfB === 2) {return xCoordinate === 3 && yCoordinate === 1}
-    else if (indexOfB === 3) {return xCoordinate === 1 && yCoordinate === 2}
-    else if (indexOfB === 4) {return xCoordinate === 2 && yCoordinate === 2}
-    else if (indexOfB === 5) {return xCoordinate === 3 && yCoordinate === 2}
-    else if (indexOfB === 6) {return xCoordinate === 1 && yCoordinate === 3}
-    else if (indexOfB === 7) {return xCoordinate === 2 && yCoordinate === 3}
-    else if (indexOfB === 8) {return xCoordinate === 3 && yCoordinate === 3}
-  }
+ // ^^^ these above functions are both for making the coordiate function work, but by creating an x and y at the same time. 
+  // getXY = (indexOfB, xCoordinate, yCoordinate) => {
+  //   if (indexOfB === 0) {return xCoordinate === 1 && yCoordinate === 1}
+  //   else if (indexOfB === 1) {return xCoordinate === 2 && yCoordinate === 1}
+  //   else if (indexOfB === 2) {return xCoordinate === 3 && yCoordinate === 1}
+  //   else if (indexOfB === 3) {return xCoordinate === 1 && yCoordinate === 2}
+  //   else if (indexOfB === 4) {return xCoordinate === 2 && yCoordinate === 2}
+  //   else if (indexOfB === 5) {return xCoordinate === 3 && yCoordinate === 2}
+  //   else if (indexOfB === 6) {return xCoordinate === 1 && yCoordinate === 3}
+  //   else if (indexOfB === 7) {return xCoordinate === 2 && yCoordinate === 3}
+  //   else if (indexOfB === 8) {return xCoordinate === 3 && yCoordinate === 3}
+  // }
 
-  getXYMessage = (xCoordinate, yCoordinate, coordinates) => {
-    if (xCoordinate === 1 && yCoordinate === 1) {return coordinates = "(1, 1)"}
-    if (xCoordinate === 2 && yCoordinate === 1) {return coordinates = "(2, 1)"}
-    if (xCoordinate === 3 && yCoordinate === 1) {return coordinates = "(3, 1)"}
-    if (xCoordinate === 1 && yCoordinate === 2) {return coordinates = "(1, 2)"}
-    if (xCoordinate === 2 && yCoordinate === 2) {return coordinates = "(2, 2)"}
-    if (xCoordinate === 3 && yCoordinate === 2) {return coordinates = "(3, 2)"}
-    if (xCoordinate === 1 && yCoordinate === 3) {return coordinates = "(1, 3)"}
-    if (xCoordinate === 2 && yCoordinate === 3) {return coordinates = "(2, 3)"}
-    if (xCoordinate === 3 && yCoordinate === 3) {return coordinates = "(3, 3)"}
-  }
+  // getXYMessage = (xCoordinate, yCoordinate, coordinates) => {
+  //   if (xCoordinate === 1 && yCoordinate === 1) {return coordinates = "(1, 1)"}
+  //   if (xCoordinate === 2 && yCoordinate === 1) {return coordinates = "(2, 1)"}
+  //   if (xCoordinate === 3 && yCoordinate === 1) {return coordinates = "(3, 1)"}
+  //   if (xCoordinate === 1 && yCoordinate === 2) {return coordinates = "(1, 2)"}
+  //   if (xCoordinate === 2 && yCoordinate === 2) {return coordinates = "(2, 2)"}
+  //   if (xCoordinate === 3 && yCoordinate === 2) {return coordinates = "(3, 2)"}
+  //   if (xCoordinate === 1 && yCoordinate === 3) {return coordinates = "(1, 3)"}
+  //   if (xCoordinate === 2 && yCoordinate === 3) {return coordinates = "(2, 3)"}
+  //   if (xCoordinate === 3 && yCoordinate === 3) {return coordinates = "(3, 3)"}
+  // }
+//^^^ these above functions are both for making the coordiate function work, but by creating an x and y at the same time. 
 
   reset = () => {
     this.setState({
