@@ -111,7 +111,7 @@ export default class AppClass extends React.Component {
   }
 
   moveLeft = (evt) => {
-    evt.board.push(board.shift())
+    this.setState({ ...this.state, board: evt.board.push(board.shift()) }) //might make all the 4 movers do this?
   } //moves the first item to the last (moving the 'B' left)
 
   moveRight = (evt) => {
