@@ -97,7 +97,7 @@ export default class AppClass extends React.Component {
     //the 'B' by 4 units. I might be able to do this by running the push 
     //and pop functions 4 times. Might have to ask about this! 
 
-  getNextIndex = (direction, board) => {
+  getNextIndex = (direction, indexOfB) => {
     if (direction === 'left') {return this.setState({...this.state, indexOfB: -1})}
     else if (direction === 'right') {return this.setState({...this.state, indexOfB: + 1})} 
     else if (direction === 'down') {return this.setState({...this.state, indexOfB: + 4})} 
@@ -107,8 +107,29 @@ export default class AppClass extends React.Component {
    move = (evt) => {
    // This event handler can use the helper above to obtain a new index for the "B",
     // and change any states accordingly.
-
+    evt.board.push(board.shift())
   }
+
+  moveLeft = (evt) => {
+    evt.board.push(board.shift())
+  } //moves the first item to the last (moving the 'B' left)
+
+  moveRight = (evt) => {
+    evt.array.unshift(array.pop())
+  } //moves the last item to the first (moving the 'B' right)
+
+  moveUp = (evt) => {
+    evt.board.push(board.shift())
+  } //need to make this move to the left 4 times, (moving the 'B' left 4 times)
+  //How can I make this function do it's thing 4 times?
+
+  moveDown = (evt) => {
+    evt.array.unshift(array.pop())
+  } //need to make this move to the right 4 times, (moving the 'B' right 4 times)
+   //How can I make this function do it's thing 4 times?
+
+
+
   onChangeOfEmail = (evt) => {
     // You will need this to update the value of the input.
     const { value } = evt.target
@@ -116,10 +137,6 @@ export default class AppClass extends React.Component {
   }
   onSubmit = (evt) => {
     // Use a POST request to send a payload to the server.
-  }
-
-  moveBToTheRight = (evt) => {
-    evt.board.move(3, 4)
   }
 
   render() {
@@ -150,10 +167,10 @@ export default class AppClass extends React.Component {
           <h3 id="message">Need to get this working</h3>
         </div>
         <div id="keypad">
-          <button id="left">LEFT</button>
-          <button id="up">UP</button>
-          <button onClick={this.moveBToTheRight} id="right">RIGHT</button>
-          <button id="down">DOWN</button>
+          <button onClick={this.moveLeft} id="left">LEFT</button>
+          <button onClick={this.moveUp} id="up">UP</button>
+          <button onClick={this.moveRight} id="right">RIGHT</button>
+          <button onClick={this.moveDown} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
         </div>
         <form>
