@@ -1,6 +1,8 @@
 import React from 'react'
 import arrayMove from 'array.prototype.move'
 
+const PostURL = 'http://localhost:9000/api/result'
+
 export default class AppClass extends React.Component {
 
   constructor() {
@@ -17,6 +19,7 @@ export default class AppClass extends React.Component {
       yCoordinate: 0
     }
   }
+
 
   getIndexOfB = (board) => {
     board.indexOf(0, 'B')
@@ -145,10 +148,30 @@ export default class AppClass extends React.Component {
   onChangeOfEmail = (evt) => {
     // You will need this to update the value of the input.
     const { value } = evt.target
+    console.log(value)
     this.setState({ ...this.state, emailInput: value })
   }
+
+  postNewEmail= () => {
+    axios.post(PostURL,
+       {x: this.state.xCoordinate,
+        y: this.state.yCoordinate,
+        steps: this.state.totalMoves,
+        email: this.state.emailInput })
+        .then(res => {
+          debugger
+        })
+        .catch(err => {
+          debugger
+        })
+  } //Do I need to be putting the x and y into quotes?
+
+
   onSubmit = (evt) => {
     // Use a POST request to send a payload to the server.
+    evt.preventDefault()
+    this.postNewEmail()
+    //This is using a post request to send the email I entered to the server
   }
 
   render() {
@@ -176,7 +199,7 @@ export default class AppClass extends React.Component {
       </div>
 
         <div className="info">
-          <h3 id="message">Need to get this working</h3>
+          <h3 id="message">This needs to be like the module 2 video Gabe did</h3>
         </div>
         <div id="keypad">
           <button onClick={this.moveLeft} id="left">LEFT</button>
@@ -185,7 +208,7 @@ export default class AppClass extends React.Component {
           <button onClick={this.moveDown} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
         </div>
-        <form>
+        <form onSubmit={this.onSubmit}>
           <input value={this.state.emailInput} onChange={this.onChangeOfEmail} id="email" type="email" placeholder="type email"></input> {/*working on this from the day2 solution video at minute 25 ALSO MORE INFO IN THE MODULE 3 GUIDED PROJECT*/} 
           <input id="submit" type="submit"></input>
         </form>
