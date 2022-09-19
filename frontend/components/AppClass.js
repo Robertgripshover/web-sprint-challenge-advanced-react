@@ -112,21 +112,33 @@ export default class AppClass extends React.Component {
 
   moveLeft = (evt) => {
     this.setState({ ...this.state, board: evt.board.push(board.shift()) }) //might make all the 4 movers do this?
+    console.log('Moving left!')
   } //moves the first item to the last (moving the 'B' left)
+  //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'push')'
+  // each time I click it
 
   moveRight = (evt) => {
     evt.array.unshift(array.pop())
+    console.log('Moving right!')
   } //moves the last item to the first (moving the 'B' right)
+   //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'unshift')'
+  // each time I click it
 
   moveUp = (evt) => {
     evt.board.push(board.shift())
+    console.log('Moving up!')
   } //need to make this move to the left 4 times, (moving the 'B' left 4 times)
   //How can I make this function do it's thing 4 times?
+   //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'push')'
+  // each time I click it
 
   moveDown = (evt) => {
     evt.array.unshift(array.pop())
+    console.log('Moving down')
   } //need to make this move to the right 4 times, (moving the 'B' right 4 times)
    //How can I make this function do it's thing 4 times?
+    //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'unshift')'
+  // each time I click it
 
 
 
