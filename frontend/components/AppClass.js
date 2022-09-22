@@ -74,7 +74,8 @@ export default class AppClass extends React.Component {
       indexOfB: 4,  
       message: '', 
       board: ['', '', '', '', 'B', '', '', '', ''],
-      totalMoves: 0
+      totalMoves: 0,
+      emailInput: ''
     })
     console.log('resetting!')
   }
@@ -170,6 +171,7 @@ export default class AppClass extends React.Component {
     // Use a POST request to send a payload to the server.
     evt.preventDefault()
     this.postNewEmail()
+    this.setState({...this.state, emailInput: ''})
     //This is using a post request to send the email I entered to the server
   }
 
