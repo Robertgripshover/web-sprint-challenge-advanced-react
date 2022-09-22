@@ -1,11 +1,10 @@
 import React from 'react'
+import axios from 'axios'
 
 const PostURL = 'http://localhost:9000/api/result'
 
 export default class AppClass extends React.Component {
 
-  
-    
   state = {
       indexOfB: 0, 
       coordinates: '',
@@ -14,11 +13,9 @@ export default class AppClass extends React.Component {
       totalMoves: 0,
       direction: '',
       emailInput: '',
-      xCoordinate: 0,
-      yCoordinate: 0
-    }
-
-  
+      xCoordinate: 2,
+      yCoordinate: 1
+  }
 
   getIndexOfB = (board) => {
     let indexOfTheB = board.indexOf(0, 'B')
@@ -110,7 +107,7 @@ export default class AppClass extends React.Component {
     evt.board.push(board.shift())
   }
 
-  moveLeft = (evt) => {
+  moveLeft = (board) => {
     this.setState({ ...this.state, board: evt.board.push(board.shift()) })
     console.log('Moving left!')
   }
@@ -158,10 +155,12 @@ export default class AppClass extends React.Component {
         steps: this.state.totalMoves,
         email: this.state.emailInput })
         .then(res => {
-          debugger
+          console.log(res.data)
+          this.setState({...this.state, message: res.data.message})
+          
         })
         .catch(err => {
-          debugger
+          console.log(err)
         })
   } //Do I need to be putting the x and y into quotes?
   //I am thinking I might be only supposed to post just hte new email
@@ -201,7 +200,7 @@ export default class AppClass extends React.Component {
       </div>
 
         <div className="info">
-          <h3 id="message">This needs to be like the module 2 video Gabe did</h3>
+          <h3 id="message">{message}</h3>
         </div>
         <div id="keypad">
           <button onClick={this.moveLeft} id="left">LEFT</button>
