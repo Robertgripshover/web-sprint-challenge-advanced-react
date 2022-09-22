@@ -149,7 +149,7 @@ export default class AppClass extends React.Component {
     this.setState({ ...this.state, emailInput: value })
   }
 
-  postNewEmail= () => {
+postNewEmail= () => {
     axios.post(PostURL,
        {x: this.state.xCoordinate,
         y: this.state.yCoordinate,
@@ -163,8 +163,7 @@ export default class AppClass extends React.Component {
         .catch(err => {
           console.log(err)
         })
-  } //Do I need to be putting the x and y into quotes?
-  //I am thinking I might be only supposed to post just hte new email
+  } //This is working! Just need to be having the x and y coordinates and the totalMoves updating dynamically
 
 
   onSubmit = (evt) => {
