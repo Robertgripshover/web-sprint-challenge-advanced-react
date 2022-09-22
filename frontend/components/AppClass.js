@@ -1,13 +1,12 @@
 import React from 'react'
-import arrayMove from 'array.prototype.move'
 
 const PostURL = 'http://localhost:9000/api/result'
 
 export default class AppClass extends React.Component {
 
-  constructor() {
-    super()
-    this.state = {
+  
+    
+  state = {
       indexOfB: 0, 
       coordinates: '',
       message: '', 
@@ -18,14 +17,13 @@ export default class AppClass extends React.Component {
       xCoordinate: 0,
       yCoordinate: 0
     }
-  }
 
+  
 
   getIndexOfB = (board) => {
-    board.indexOf(0, 'B')
+    let indexOfTheB = board.indexOf(0, 'B')
+    console.log(indexOfTheB)
   }
-
- 
 
   moveRight = (indexOfB) => {
     this.setState({ ...this.state, indexOfB: indexOfB + 1})
@@ -36,7 +34,6 @@ export default class AppClass extends React.Component {
 
   }
 
-  //this VVV getXY function is working
   getXY = (indexOfB, coordinates) => {
     if (indexOfB === 0) {return coordinates = "(1, 1)"}
     if (indexOfB === 1) {return coordinates = "(2, 1)"}
@@ -114,14 +111,16 @@ export default class AppClass extends React.Component {
   }
 
   moveLeft = (evt) => {
-    this.setState({ ...this.state, board: evt.board.push(board.shift()) }) //might make all the 4 movers do this?
+    this.setState({ ...this.state, board: evt.board.push(board.shift()) })
     console.log('Moving left!')
-  } //moves the first item to the last (moving the 'B' left)
+  }
+   //might make all the 4 movers do this?
+   //moves the first item to the last (moving the 'B' left)
   //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'push')'
   // each time I click it
 
   moveRight = (evt) => {
-    evt.array.unshift(array.pop())
+    evt.board.unshift(board.pop())
     console.log('Moving right!')
   } //moves the last item to the first (moving the 'B' right)
    //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'unshift')'
@@ -136,7 +135,7 @@ export default class AppClass extends React.Component {
   // each time I click it
 
   moveDown = (evt) => {
-    evt.array.unshift(array.pop())
+    evt.board.unshift(board.pop())
     console.log('Moving down')
   } //need to make this move to the right 4 times, (moving the 'B' right 4 times)
    //How can I make this function do it's thing 4 times?
@@ -174,6 +173,8 @@ export default class AppClass extends React.Component {
     this.postNewEmail()
     //This is using a post request to send the email I entered to the server
   }
+
+
 
   render() {
 
