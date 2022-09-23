@@ -103,44 +103,41 @@ export default class AppClass extends React.Component {
   }
 
    move = (evt) => {
-   // This event handler can use the helper above to obtain a new index for the "B",
-    // and change any states accordingly.
-    evt.board.push(board.shift())
+    if (evt.target.value === 'left') {return this.moveLeft()}
+    if (evt.target.value === 'right') {return this.moveLeft()}
+    if (evt.target.value === 'down') {return this.moveLeft()}
+    if (evt.target.value === 'up') {return this.moveLeft()}
   }
+  //I am trying to make this take in the event of clicking the button on the keypad, and then
+  // seeing if that value lines up with one of the four left, right, up and down. Then, 
+  //depending on the direction it will call one of those functions. This might be to complicated and might not make things any 
+  //easiser, but it might work. 
 
-  moveLeft = (board) => {
-    this.setState({ ...this.state, board: evt.board.push(board.shift()) })
-    console.log('Moving left!')
-  }
-   //might make all the 4 movers do this?
-   //moves the first item to the last (moving the 'B' left)
-  //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'push')'
-  // each time I click it
+  moveLeft = (evt) => {
+    this.setState(state => {
+      const board = [...state.board, ''] //suposedly adding one to the back of the array. 
+    })
+  }//moves the first item to the last (moving the 'B' left)
+
 
   moveRight = (evt) => {
-    evt.board.unshift(board.pop())
-    console.log('Moving right!')
-  } //moves the last item to the first (moving the 'B' right)
-   //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'unshift')'
-  // each time I click it
+    this.setState(state => {
+      const newBoard = ['', ...state.board] //suposedly adding one to the front of the array. 
+    })
+  }//moves the last item to the first (moving the 'B' right)
+   
 
   moveUp = (evt) => {
     evt.board.push(board.shift())
     console.log('Moving up!')
   } //need to make this move to the left 4 times, (moving the 'B' left 4 times)
   //How can I make this function do it's thing 4 times?
-   //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'push')'
-  // each time I click it
 
   moveDown = (evt) => {
     evt.board.unshift(board.pop())
     console.log('Moving down')
   } //need to make this move to the right 4 times, (moving the 'B' right 4 times)
    //How can I make this function do it's thing 4 times?
-    //this is saying, 'Uncaught TypeError: Cannot read properties of undefined (reading 'unshift')'
-  // each time I click it
-
-
 
   onChangeOfEmail = (evt) => {
     // You will need this to update the value of the input.
@@ -172,7 +169,7 @@ postNewEmail= () => {
     this.postNewEmail()
     this.setState({...this.state, emailInput: ''})
     //This is using a post request to send the email I entered to the server
-  }
+  } //this is also working!
 
 
 
