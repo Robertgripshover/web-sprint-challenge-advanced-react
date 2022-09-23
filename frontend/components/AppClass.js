@@ -9,7 +9,7 @@ export default class AppClass extends React.Component {
       indexOfB: 0, 
       coordinates: '',
       message: '', 
-      board: ['', '', 'B', '', '', '', '', '', ''],
+      board: ['', '', '', '', 'B', '', '', '', ''],
       totalMoves: 0,
       direction: '',
       emailInput: '',
@@ -20,15 +20,6 @@ export default class AppClass extends React.Component {
   getIndexOfB = (board) => {
     let indexOfTheB = board.indexOf(0, 'B')
     console.log(indexOfTheB)
-  }
-
-  moveRight = (indexOfB) => {
-    this.setState({ ...this.state, indexOfB: indexOfB + 1})
-    console.log(indexOfB)
-  }
-
-  newGetXY = () => {
-
   }
 
   getXY = (indexOfB, coordinates) => {
@@ -102,7 +93,8 @@ export default class AppClass extends React.Component {
     else if (direction === 'up') {return this.setState({...this.state, indexOfB: - 4})}  
   }
 
-   move = (evt) => {
+
+  move = (evt) => {
     if (evt.target.value === 'left') {return this.moveLeft()}
     if (evt.target.value === 'right') {return this.moveLeft()}
     if (evt.target.value === 'down') {return this.moveLeft()}
@@ -113,17 +105,38 @@ export default class AppClass extends React.Component {
   //depending on the direction it will call one of those functions. This might be to complicated and might not make things any 
   //easiser, but it might work. 
 
-  moveLeft = (evt) => {
+
+
+  addToFrontOfArray = () => {
     this.setState(state => {
-      const board = [...state.board, ''] //suposedly adding one to the back of the array. 
+     let board = ['', ...state.board] //suposedly adding one to the front of the array. 
+     console.log(board)
     })
+    
+  }
+
+  addToBackOfArray = () => {
+    this.setState({ board: this.state.board.splice(0, 0, '')})
+  }
+
+
+  removeItemFromFrontOfArray = () => {
+    this.setState({ board: this.state.board.slice(1)})
+    
+  } //this is actually working!
+
+
+
+
+
+  moveLeft = () => {
+    this.removeItemFromFrontOfArray()
+    this.addToBackOfArray()
   }//moves the first item to the last (moving the 'B' left)
 
 
-  moveRight = (evt) => {
-    this.setState(state => {
-      const newBoard = ['', ...state.board] //suposedly adding one to the front of the array. 
-    })
+  moveRight = () => {
+    this.addToFrontOfArray()
   }//moves the last item to the first (moving the 'B' right)
    
 
