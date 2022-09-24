@@ -123,7 +123,7 @@ export default class AppClass extends React.Component {
     })
   }
 
-  removeFourItemsFromFrontOfArray = () => {
+  removeThreeItemsFromFrontOfArray = () => {
     this.setState({ board: this.state.board.slice(3)})
   }
 
