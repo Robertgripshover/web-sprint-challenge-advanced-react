@@ -114,6 +114,21 @@ export default class AppClass extends React.Component {
     })
 }
 
+  addFourToBackOfArray = () => {
+    const newBoard = [...this.state.board]
+    const fourElementsArray = ['', '', '', '']
+    newBoard.concat(fourElementsArray)
+    this.setState({
+      ...this.state, 
+      board: newBoard
+    })
+  
+  }
+
+  removeFourItemsFromFrontOfArray = () => {
+    this.setState({ board: this.state.board.slice(4)})
+  }
+
 
   removeItemFromFrontOfArray = () => {
     this.setState({ board: this.state.board.slice(1)})
@@ -133,7 +148,8 @@ export default class AppClass extends React.Component {
    
 
   moveUp = () => {
-    this.addToBackOfArray()
+    this.removeFourItemsFromFrontOfArray()
+    this.addFourToBackOfArray()
   } //need to make this move to the left 4 times, (moving the 'B' left 4 times)
   //How can I make this function do it's thing 4 times?
 
