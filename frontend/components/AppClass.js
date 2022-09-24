@@ -75,17 +75,6 @@ export default class AppClass extends React.Component {
     // of the "B" would be. If the move is impossible because we are at the edge of the grid,
     // this helper should return the current index unchanged.
 
-
-    //9-16-2022 Friday, it looks like if I could use state to update the 'board' array each time I 
-    //I do 
-    // array.push(array.shift()); <--- moves the first item to the last
-    // array.unshift(array.pop()); <--- moves the last item to the first 
-    //I could use a combo of those to make the 'B' move around the array. 
-    //If I wanted the 'B' to move once I would only need to do it once, 
-    //If I wanted it to go 'up' or 'down' that would need me to be moving 
-    //the 'B' by 4 units. I might be able to do this by running the push 
-    //and pop functions 4 times. Might have to ask about this! 
-
   getNextIndex = (direction, indexOfB) => {
     if (direction === 'left') {return this.setState({...this.state, indexOfB: -1})}
     else if (direction === 'right') {return this.setState({...this.state, indexOfB: + 1})} 
@@ -108,41 +97,43 @@ export default class AppClass extends React.Component {
 
 
   addToFrontOfArray = () => {
-    this.setState(state => {
-     let board = ['', ...state.board] //suposedly adding one to the front of the array. 
-     console.log(board)
+    const newBoard = [...this.state.board]
+    newBoard.unshift(newBoard.pop())
+    this.setState({
+      ...this.state, 
+      board: newBoard
     })
-    
   }
 
   addToBackOfArray = () => {
-    this.setState({ board: this.state.board.splice(0, 0, '')})
-  }
+    const newBoard = [...this.state.board]
+    newBoard.push(newBoard.shift())
+    this.setState({
+      ...this.state, 
+      board: newBoard
+    })
+}
 
 
   removeItemFromFrontOfArray = () => {
     this.setState({ board: this.state.board.slice(1)})
-    
   } //this is actually working!
 
-
-
+  moveRight = () => {
+    this.removeItemFromFrontOfArray()
+    this.addToFrontOfArray()
+  }//moves the first item to the last (moving the 'B' left)
+  //need to add something to add to the back of the array, so it does just disapear
 
 
   moveLeft = () => {
     this.removeItemFromFrontOfArray()
     this.addToBackOfArray()
-  }//moves the first item to the last (moving the 'B' left)
-
-
-  moveRight = () => {
-    this.addToFrontOfArray()
   }//moves the last item to the first (moving the 'B' right)
    
 
-  moveUp = (evt) => {
-    evt.board.push(board.shift())
-    console.log('Moving up!')
+  moveUp = () => {
+    this.addToBackOfArray()
   } //need to make this move to the left 4 times, (moving the 'B' left 4 times)
   //How can I make this function do it's thing 4 times?
 
