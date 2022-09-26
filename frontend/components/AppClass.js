@@ -95,26 +95,49 @@ export default class AppClass extends React.Component {
     this.setState({ board: this.state.board.slice(1)})
   } 
 
+  remove3ItemsFromBackOfArray = () => {
+    const newBoard = [...this.state.board]
+    newBoard.splice(6, 3)
+    this.setState({ ...this.state, board: newBoard})
+  } 
+
+  add3ItemsToBackOfArray = () => {
+    const newBoard = [...this.state.board]
+    newBoard.push('', '', '')
+    this.setState({...this.state, board: newBoard})
+    console.log(newBoard)
+  }
+
   moveRight = () => {
     this.removeItemFromFrontOfArray()
     this.addToFrontOfArray()
+
     // this.incrementTotalMoves() /*NOT WORKING YET*/
   }
 
   moveLeft = () => {
     this.removeItemFromFrontOfArray()
     this.addToBackOfArray()
+
     // this.incrementTotalMoves() /*NOT WORKING YET*/
   }
 
   moveUp = () => {
-    this.removeThreeItemsFromFrontOfArray()
-    this.addThreeToBackOfArray()
-    // this.incrementTotalMoves() /*NOT WORKING YET*/
+    //need to remove 3 items from the beginning of the array and then add 3 items to the back of the array
+    this.removeThreeItemsFromFrontOfArray() //supposed to remove 3 from beginning of array
+
+    
+    
+    
+
+     // this.incrementTotalMoves() /*NOT WORKING YET*/
   } 
 
   moveDown = () => {
-    this.removeThreeItemsFromFrontOfArray()
+    //need to add 3 items to the front of the array first and then remove 3 items from the end of the array
+    this.add3ItemsToFrontOfArray()
+    this.remove3ItemsFromBackOfArray()
+       
     // this.incrementTotalMoves() /*NOT WORKING YET*/
   } 
 
@@ -209,9 +232,9 @@ postNewEmail= () => {
         </div>
         <div id="keypad">
           <button onClick={this.handleLeftClick} id="left">LEFT</button>
-          <button onClick={this.moveUp} id="up">UP</button>
+          <button onClick={this.handleUpClick} id="up">UP</button>
           <button onClick={this.handleRightClick} id="right">RIGHT</button> 
-          <button onClick={this.moveDown} id="down">DOWN</button>
+          <button onClick={this.handleDownClick} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
         </div>
         <form onSubmit={this.onSubmit}>
