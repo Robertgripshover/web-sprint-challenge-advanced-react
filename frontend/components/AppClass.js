@@ -119,7 +119,7 @@ export default class AppClass extends React.Component {
   } 
 
   handleRightClick = () => {
-    const newMessage = "You can't move right"
+    const newMessage = "You can't go right"
     if (this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 5) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
@@ -127,7 +127,7 @@ export default class AppClass extends React.Component {
   }
 
   handleLeftClick = () => {
-    const newMessage = "You can't move left"
+    const newMessage = "You can't go left"
     if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 3) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
@@ -135,7 +135,7 @@ export default class AppClass extends React.Component {
   }
 
   handleUpClick = () => {
-    const newMessage = "You can't move up"
+    const newMessage = "You can't go up"
     if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 1) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
@@ -143,7 +143,7 @@ export default class AppClass extends React.Component {
   }
 
   handleDownClick = () => {
-    const newMessage = "You can't move down"
+    const newMessage = "You can't go down"
     if (this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 7) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
