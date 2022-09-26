@@ -104,7 +104,19 @@ export default class AppClass extends React.Component {
   moveLeft = () => {
     this.removeItemFromFrontOfArray()
     this.addToBackOfArray()
+    // this.incrementTotalMoves() /*NOT WORKING YET*/
   }
+
+  moveUp = () => {
+    this.removeThreeItemsFromFrontOfArray()
+    this.addThreeToBackOfArray()
+    // this.incrementTotalMoves() /*NOT WORKING YET*/
+  } 
+
+  moveDown = () => {
+    this.removeThreeItemsFromFrontOfArray()
+    // this.incrementTotalMoves() /*NOT WORKING YET*/
+  } 
 
   handleRightClick = () => {
     const newMessage = "You can't move right"
@@ -122,14 +134,21 @@ export default class AppClass extends React.Component {
     else {return this.moveLeft()}
   }
 
-  moveUp = () => {
-    this.removeThreeItemsFromFrontOfArray()
-    this.addThreeToBackOfArray()
-  } 
+  handleUpClick = () => {
+    const newMessage = "You can't move up"
+    if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
+    else if(this.state.board.indexOf('B', 0) === 1) {return this.setState({...this.state, message: newMessage})}
+    else if(this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
+    else {return this.moveUp()}
+  }
 
-  moveDown = () => {
-    this.removeThreeItemsFromFrontOfArray()
-  } 
+  handleDownClick = () => {
+    const newMessage = "You can't move down"
+    if (this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
+    else if(this.state.board.indexOf('B', 0) === 7) {return this.setState({...this.state, message: newMessage})}
+    else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
+    else {return this.moveDown()}
+  }
 
   incrementTotalMoves = () => {
     const newTotalMoves = [...this.state.totalMoves]
