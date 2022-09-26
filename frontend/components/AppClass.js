@@ -34,32 +34,6 @@ export default class AppClass extends React.Component {
     if (indexOfB === 8) {return coordinates = "(3, 3)"}
   } 
 
- // ^^^ these above functions are both for making the coordiate function work, but by creating an x and y at the same time. 
-  // getXY = (indexOfB, xCoordinate, yCoordinate) => {
-  //   if (indexOfB === 0) {return xCoordinate === 1 && yCoordinate === 1}
-  //   else if (indexOfB === 1) {return xCoordinate === 2 && yCoordinate === 1}
-  //   else if (indexOfB === 2) {return xCoordinate === 3 && yCoordinate === 1}
-  //   else if (indexOfB === 3) {return xCoordinate === 1 && yCoordinate === 2}
-  //   else if (indexOfB === 4) {return xCoordinate === 2 && yCoordinate === 2}
-  //   else if (indexOfB === 5) {return xCoordinate === 3 && yCoordinate === 2}
-  //   else if (indexOfB === 6) {return xCoordinate === 1 && yCoordinate === 3}
-  //   else if (indexOfB === 7) {return xCoordinate === 2 && yCoordinate === 3}
-  //   else if (indexOfB === 8) {return xCoordinate === 3 && yCoordinate === 3}
-  // }
-
-  // getXYMessage = (xCoordinate, yCoordinate, coordinates) => {
-  //   if (xCoordinate === 1 && yCoordinate === 1) {return coordinates = "(1, 1)"}
-  //   if (xCoordinate === 2 && yCoordinate === 1) {return coordinates = "(2, 1)"}
-  //   if (xCoordinate === 3 && yCoordinate === 1) {return coordinates = "(3, 1)"}
-  //   if (xCoordinate === 1 && yCoordinate === 2) {return coordinates = "(1, 2)"}
-  //   if (xCoordinate === 2 && yCoordinate === 2) {return coordinates = "(2, 2)"}
-  //   if (xCoordinate === 3 && yCoordinate === 2) {return coordinates = "(3, 2)"}
-  //   if (xCoordinate === 1 && yCoordinate === 3) {return coordinates = "(1, 3)"}
-  //   if (xCoordinate === 2 && yCoordinate === 3) {return coordinates = "(2, 3)"}
-  //   if (xCoordinate === 3 && yCoordinate === 3) {return coordinates = "(3, 3)"}
-  // }
-//^^^ these above functions are both for making the coordiate function work, but by creating an x and y at the same time. 
-
   reset = () => {
     this.setState({
       indexOfB: 4,  
@@ -71,10 +45,6 @@ export default class AppClass extends React.Component {
     console.log('resetting!')
   }
 
-    // This helper takes a direction ("left", "up", etc) and calculates what the next index
-    // of the "B" would be. If the move is impossible because we are at the edge of the grid,
-    // this helper should return the current index unchanged.
-
   getNextIndex = (direction, indexOfB) => {
     if (direction === 'left') {return this.setState({...this.state, indexOfB: -1})}
     else if (direction === 'right') {return this.setState({...this.state, indexOfB: + 1})} 
@@ -82,19 +52,12 @@ export default class AppClass extends React.Component {
     else if (direction === 'up') {return this.setState({...this.state, indexOfB: - 4})}  
   }
 
-
   move = (evt) => {
     if (evt.target.value === 'left') {return this.moveLeft()}
     if (evt.target.value === 'right') {return this.moveLeft()}
     if (evt.target.value === 'down') {return this.moveLeft()}
     if (evt.target.value === 'up') {return this.moveLeft()}
   }
-  //I am trying to make this take in the event of clicking the button on the keypad, and then
-  // seeing if that value lines up with one of the four left, right, up and down. Then, 
-  //depending on the direction it will call one of those functions. This might be to complicated and might not make things any 
-  //easiser, but it might work. 
-
-
 
   addToFrontOfArray = () => {
     const newBoard = [...this.state.board]
@@ -112,14 +75,15 @@ export default class AppClass extends React.Component {
       ...this.state, 
       board: newBoard
     })
-}
+  }
 
-  addFourToBackOfArray = () => {
-    const fourElementsArray = ['', '']
-    board.concat(fourElementsArray)
+  addThreeToBackOfArray = () => {
+    const threeElementsArray = ['', '', '']
+    const newBoard = [...this.state.board]
+    newBoard.concat(threeElementsArray)
     this.setState({
       ...this.state, 
-      board: board
+      board: newBoard
     })
   }
 
@@ -127,39 +91,53 @@ export default class AppClass extends React.Component {
     this.setState({ board: this.state.board.slice(3)})
   }
 
-
   removeItemFromFrontOfArray = () => {
     this.setState({ board: this.state.board.slice(1)})
-  } //this is actually working!
+  } 
 
   moveRight = () => {
     this.removeItemFromFrontOfArray()
     this.addToFrontOfArray()
-  }//moves the first item to the last (moving the 'B' left)
-  //need to add something to add to the back of the array, so it does just disapear
-
+    // this.incrementTotalMoves() /*NOT WORKING YET*/
+  }
 
   moveLeft = () => {
     this.removeItemFromFrontOfArray()
     this.addToBackOfArray()
-  }//moves the last item to the first (moving the 'B' right)
-   
+  }
+
+  handleRightClick = () => {
+    const newMessage = "You can't move right"
+    if (this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
+    else if(this.state.board.indexOf('B', 0) === 5) {return this.setState({...this.state, message: newMessage})}
+    else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
+    else {return this.moveRight()}
+  }
+
+  handleLeftClick = () => {
+    const newMessage = "You can't move left"
+    if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
+    else if(this.state.board.indexOf('B', 0) === 3) {return this.setState({...this.state, message: newMessage})}
+    else if(this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
+    else {return this.moveLeft()}
+  }
 
   moveUp = () => {
     this.removeThreeItemsFromFrontOfArray()
-    this.addFourToBackOfArray()
-  } //need to make this move to the left 4 times, (moving the 'B' left 4 times)
-  //How can I make this function do it's thing 4 times?
+    this.addThreeToBackOfArray()
+  } 
 
   moveDown = () => {
     this.removeThreeItemsFromFrontOfArray()
-  } //need to make this move to the right 4 times, (moving the 'B' right 4 times)
-   //How can I make this function do it's thing 4 times?
+  } 
+
+  incrementTotalMoves = () => {
+    const newTotalMoves = [...this.state.totalMoves]
+    this.setState({...this.state, totalMoves: newTotalMoves ++})
+  }
 
   onChangeOfEmail = (evt) => {
-    // You will need this to update the value of the input.
     const { value } = evt.target
-    console.log(value)
     this.setState({ ...this.state, emailInput: value })
   }
 
@@ -172,23 +150,17 @@ postNewEmail= () => {
         .then(res => {
           console.log(res.data)
           this.setState({...this.state, message: res.data.message})
-          
         })
         .catch(err => {
           console.log(err)
         })
-  } //This is working! Just need to be having the x and y coordinates and the totalMoves updating dynamically
-
+  } 
 
   onSubmit = (evt) => {
-    // Use a POST request to send a payload to the server.
     evt.preventDefault()
     this.postNewEmail()
     this.setState({...this.state, emailInput: ''})
-    //This is using a post request to send the email I entered to the server
-  } //this is also working!
-
-
+  } 
 
   render() {
 
@@ -210,22 +182,21 @@ postNewEmail= () => {
                 <div key={idx} className={`square${val ? ' active' : ''}`}>{val}</div>
               ) 
           })}
-           {/*need to make the squere withoutdthe be classname "square" and with the B classname "square active" and in the "square active I need to have "B" show up in 
-          In the white part in between the two arrows like how the hard coded stuff is" */}
+
       </div>
 
         <div className="info">
           <h3 id="message">{message}</h3>
         </div>
         <div id="keypad">
-          <button onClick={this.moveLeft} id="left">LEFT</button>
+          <button onClick={this.handleLeftClick} id="left">LEFT</button>
           <button onClick={this.moveUp} id="up">UP</button>
-          <button onClick={this.moveRight} id="right">RIGHT</button>
+          <button onClick={this.handleRightClick} id="right">RIGHT</button> 
           <button onClick={this.moveDown} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
         </div>
         <form onSubmit={this.onSubmit}>
-          <input value={this.state.emailInput} onChange={this.onChangeOfEmail} id="email" type="email" placeholder="type email"></input> {/*working on this from the day2 solution video at minute 25 ALSO MORE INFO IN THE MODULE 3 GUIDED PROJECT*/} 
+          <input value={this.state.emailInput} onChange={this.onChangeOfEmail} id="email" type="email" placeholder="type email"></input>  
           <input id="submit" type="submit"></input>
         </form>
       </div>
