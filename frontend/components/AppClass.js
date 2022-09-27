@@ -6,12 +6,10 @@ const PostURL = 'http://localhost:9000/api/result'
 export default class AppClass extends React.Component {
 
   state = {
-      indexOfB: 0, 
       coordinates: '',
       message: '', 
       board: ['', '', '', '', 'B', '', '', '', ''],
       totalMoves: 0,
-      direction: '',
       emailInput: '',
       xCoordinate: 2,
       yCoordinate: 1
@@ -49,21 +47,17 @@ moveBOverThree = () => {
   this.addThreeToFront(this.removeThreeFromBack())
 }
 
-  getIndexOfB = (board) => {
-    let indexOfTheB = board.indexOf(0, 'B')
-    console.log(indexOfTheB)
-  }
 
-  getXY = (indexOfB, coordinates) => {
-    if (indexOfB === 0) {return coordinates = "(1, 1)"}
-    if (indexOfB === 1) {return coordinates = "(2, 1)"}
-    if (indexOfB === 2) {return coordinates = "(3, 1)"}
-    if (indexOfB === 3) {return coordinates = "(1, 2)"}
-    if (indexOfB === 4) {return coordinates = "(2, 2)"}
-    if (indexOfB === 5) {return coordinates = "(3, 2)"}
-    if (indexOfB === 6) {return coordinates = "(1, 3)"}
-    if (indexOfB === 7) {return coordinates = "(2, 3)"}
-    if (indexOfB === 8) {return coordinates = "(3, 3)"}
+getXY = (coordinates) => {
+    if (this.state.board.indexOf('B') === 0) {return coordinates = "(1, 1)"}
+    if (this.state.board.indexOf('B') === 1) {return coordinates = "(2, 1)"}
+    if (this.state.board.indexOf('B') === 2) {return coordinates = "(3, 1)"}
+    if (this.state.board.indexOf('B') === 3) {return coordinates = "(1, 2)"}
+    if (this.state.board.indexOf('B') === 4) {return coordinates = "(2, 2)"}
+    if (this.state.board.indexOf('B') === 5) {return coordinates = "(3, 2)"}
+    if (this.state.board.indexOf('B') === 6) {return coordinates = "(1, 3)"}
+    if (this.state.board.indexOf('B') === 7) {return coordinates = "(2, 3)"}
+    if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
   } 
 
   reset = () => {
