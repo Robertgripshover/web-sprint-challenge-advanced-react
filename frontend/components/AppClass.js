@@ -11,7 +11,7 @@ export default class AppClass extends React.Component {
       board: ['', '', '', '', 'B', '', '', '', ''],
       totalMoves: 0,
       emailInput: '',
-      xCoordinate: 2,
+      xCoordinate: 1,
       yCoordinate: 1
   }
 
@@ -58,7 +58,19 @@ getXY = (coordinates) => {
     if (this.state.board.indexOf('B') === 6) {return coordinates = "(1, 3)"}
     if (this.state.board.indexOf('B') === 7) {return coordinates = "(2, 3)"}
     if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
-  } 
+} //WORKING PERFECTLY
+
+updateXY = (xCoordinate, yCoordinate) => {
+  if (this.state.coordinates === "(1, 1)") {return xCoordinate === 1 && yCoordinate === 1}
+  if (this.state.coordinates === "(2, 1)") {return xCoordinate === 2 && yCoordinate === 1}
+  if (this.state.coordinates === "(3, 1)") {return xCoordinate === 3 && yCoordinate === 1}
+  if (this.state.coordinates === "(1, 2)") {return xCoordinate === 1 && yCoordinate === 2}
+  if (this.state.coordinates === "(2, 2)") {return xCoordinate === 2 && yCoordinate === 2}
+  if (this.state.coordinates === "(3, 2)") {return xCoordinate === 3 && yCoordinate === 2}
+  if (this.state.coordinates === "(1, 3)") {return xCoordinate === 1 && yCoordinate === 3}
+  if (this.state.coordinates === "(2, 3)") {return xCoordinate === 2 && yCoordinate === 3}
+  if (this.state.coordinates === "(3, 3)") {return xCoordinate === 3 && yCoordinate === 3}
+}  
 
   reset = () => {
     this.setState({
@@ -69,14 +81,7 @@ getXY = (coordinates) => {
       emailInput: ''
     })
     console.log('resetting!')
-  }
-
-  getNextIndex = (direction, indexOfB) => {
-    if (direction === 'left') {return this.setState({...this.state, indexOfB: -1})}
-    else if (direction === 'right') {return this.setState({...this.state, indexOfB: + 1})} 
-    else if (direction === 'down') {return this.setState({...this.state, indexOfB: + 4})} 
-    else if (direction === 'up') {return this.setState({...this.state, indexOfB: - 4})}  
-  }
+  }//WORKING PERFECTLY
 
   addToFrontOfArray = () => {
     const newBoard = [...this.state.board]
