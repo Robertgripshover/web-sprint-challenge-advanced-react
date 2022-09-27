@@ -139,35 +139,24 @@ moveBOverThree = () => {
   moveRight = () => {
     this.removeItemFromFrontOfArray()
     this.addToFrontOfArray()
-
-    // this.incrementTotalMoves() /*NOT WORKING YET*/
+    this.incrementTotalMoves()
   }
 
   moveLeft = () => {
     this.removeItemFromFrontOfArray()
     this.addToBackOfArray()
-
-    // this.incrementTotalMoves() /*NOT WORKING YET*/
+    this.incrementTotalMoves()
   }
 
   moveUp = () => {
-    //need to remove 3 items from the beginning of the array and then add 3 items to the back of the array
     this.removeThreeItemsFromFrontOfArray()
-     // this.incrementTotalMoves() /*NOT WORKING YET*/
+    this.incrementTotalMoves() 
   } 
 
   moveDown = () => {
-    //need to add 3 items to the front of the array first and then remove 3 items from the end of the array
     this.addThreeToFront()
-   
-    
-
-    
- 
-
-       
-    // this.incrementTotalMoves() /*NOT WORKING YET*/
-  } 
+    this.incrementTotalMoves()
+   } 
 
   handleRightClick = () => {
     const newMessage = "You can't go right"
@@ -202,8 +191,7 @@ moveBOverThree = () => {
   }
 
   incrementTotalMoves = () => {
-    const newTotalMoves = [...this.state.totalMoves]
-    this.setState({...this.state, totalMoves: newTotalMoves ++})
+    this.setState({totalMoves: this.state.totalMoves + 1})
   }
 
   onChangeOfEmail = (evt) => {
