@@ -124,7 +124,8 @@ export default class AppClass extends React.Component {
 
   moveUp = () => {
     //need to remove 3 items from the beginning of the array and then add 3 items to the back of the array
-    this.removeThreeItemsFromFrontOfArray() //supposed to remove 3 from beginning of array
+    this.removeThreeItemsFromFrontOfArray() //supposed to remove 3 from beginning of array (working)
+    this.addThreeToBackOfArray
 
     
     
