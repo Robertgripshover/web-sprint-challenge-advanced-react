@@ -17,6 +17,38 @@ export default class AppClass extends React.Component {
       yCoordinate: 1
   }
 
+//add THREE to the back of the array
+// board.push('', '', '')
+//add THREE to the front of the array
+// board.unshift('', '', '')
+
+//remove THREE from the front of the array
+// board.splice(0, 3)
+//remove THREE from the back of array
+// board.splice(6, 3)
+
+addThreeToFront = () => {
+  const newBoard = [...this.state.board]
+  newBoard.unshift('', '', '')
+  this.setState({
+    ...this.state, 
+    board: newBoard
+  })
+}
+
+removeThreeFromBack = () => {
+  const newBoard = [...this.state.board]
+  newBoard.splice(8, 3)
+  this.setState({
+    ...this.state, 
+    board: newBoard
+  })
+}
+
+moveBOverThree = () => {
+  this.addThreeToFront(this.removeThreeFromBack())
+}
+
   getIndexOfB = (board) => {
     let indexOfTheB = board.indexOf(0, 'B')
     console.log(indexOfTheB)
@@ -52,13 +84,6 @@ export default class AppClass extends React.Component {
     else if (direction === 'up') {return this.setState({...this.state, indexOfB: - 4})}  
   }
 
-  move = (evt) => {
-    if (evt.target.value === 'left') {return this.moveLeft()}
-    if (evt.target.value === 'right') {return this.moveLeft()}
-    if (evt.target.value === 'down') {return this.moveLeft()}
-    if (evt.target.value === 'up') {return this.moveLeft()}
-  }
-
   addToFrontOfArray = () => {
     const newBoard = [...this.state.board]
     newBoard.unshift(newBoard.pop())
@@ -77,14 +102,17 @@ export default class AppClass extends React.Component {
     })
   }
 
+  addThreeToBeginningOfArray = () => {
+    const newBoard = [...this.state.board]
+    newBoard.unshift('', '', '')
+    this.setState({...this.state, board: newBoard})
+  }
+
   addThreeToBackOfArray = () => {
     const threeElementsArray = ['', '', '']
     const newBoard = [...this.state.board]
     newBoard.concat(threeElementsArray)
-    this.setState({
-      ...this.state, 
-      board: newBoard
-    })
+    this.setState({...this.state, board: newBoard})
   }
 
   removeThreeItemsFromFrontOfArray = () => {
@@ -124,20 +152,19 @@ export default class AppClass extends React.Component {
 
   moveUp = () => {
     //need to remove 3 items from the beginning of the array and then add 3 items to the back of the array
-    this.removeThreeItemsFromFrontOfArray() //supposed to remove 3 from beginning of array (working)
-    this.addThreeToBackOfArray
-
-    
-    
-    
-
+    this.removeThreeItemsFromFrontOfArray()
      // this.incrementTotalMoves() /*NOT WORKING YET*/
   } 
 
   moveDown = () => {
     //need to add 3 items to the front of the array first and then remove 3 items from the end of the array
-    this.add3ItemsToFrontOfArray()
-    this.remove3ItemsFromBackOfArray()
+    this.addThreeToFront()
+   
+    
+
+    
+ 
+
        
     // this.incrementTotalMoves() /*NOT WORKING YET*/
   } 
