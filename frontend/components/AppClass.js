@@ -60,33 +60,43 @@ getXY = (coordinates) => {
     if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
 } //WORKING PERFECTLY
 
-updateX = (xCoordinate) => {
-  if (this.state.coordinates === "(1, 1)") {return xCoordinate = 1}
-  if (this.state.coordinates === "(2, 1)") {return xCoordinate = 2}
-  if (this.state.coordinates === "(3, 1)") {return xCoordinate = 3}
-  if (this.state.coordinates === "(1, 2)") {return xCoordinate = 1}
-  if (this.state.coordinates === "(2, 2)") {return xCoordinate = 2}
-  if (this.state.coordinates === "(3, 2)") {return xCoordinate = 3}
-  if (this.state.coordinates === "(1, 3)") {return xCoordinate = 1}
-  if (this.state.coordinates === "(2, 3)") {return xCoordinate = 2}
-  if (this.state.coordinates === "(3, 3)") {return xCoordinate = 3}
-}  //this part is not working yet, i checked with Postman and the 
+// updateX = (xCoordinate) => {
+//   if (this.state.coordinates === "(1, 1)") {return xCoordinate = 1}
+//   if (this.state.coordinates === "(2, 1)") {return xCoordinate = 2}
+//   if (this.state.coordinates === "(3, 1)") {return xCoordinate = 3}
+//   if (this.state.coordinates === "(1, 2)") {return xCoordinate = 1}
+//   if (this.state.coordinates === "(2, 2)") {return xCoordinate = 2}
+//   if (this.state.coordinates === "(3, 2)") {return xCoordinate = 3}
+//   if (this.state.coordinates === "(1, 3)") {return xCoordinate = 1}
+//   if (this.state.coordinates === "(2, 3)") {return xCoordinate = 2}
+//   if (this.state.coordinates === "(3, 3)") {return xCoordinate = 3}
+//} / //this part is not working yet, i checked with Postman and the 
 //x and y coordinates are not updating with state, this is above updateXY() function is 
 //not working yet, Tuesday 9-27-2022 7:00PM
 
-updateY = (yCoordinate) => {
-  if (this.state.coordinates === "(1, 1)") {return yCoordinate = 1}
-  if (this.state.coordinates === "(2, 1)") {return yCoordinate = 1}
-  if (this.state.coordinates === "(3, 1)") {return yCoordinate = 1}
-  if (this.state.coordinates === "(1, 2)") {return yCoordinate = 2}
-  if (this.state.coordinates === "(2, 2)") {return yCoordinate = 2}
-  if (this.state.coordinates === "(3, 2)") {return yCoordinate = 2}
-  if (this.state.coordinates === "(1, 3)") {return yCoordinate = 3}
-  if (this.state.coordinates === "(2, 3)") {return yCoordinate = 3}
-  if (this.state.coordinates === "(3, 3)") {return yCoordinate = 3}
+updateX = () => {
+  if (this.state.coordinates === "(1, 1)") {return setState({...this.state, yCoordinate: 1})}
+  if (this.state.coordinates === "(2, 1)") {return setState({...this.state, yCoordinate: 2})}
+  if (this.state.coordinates === "(3, 1)") {return setState({...this.state, yCoordinate: 3})}
+  if (this.state.coordinates === "(1, 2)") {return setState({...this.state, yCoordinate: 1})}
+  if (this.state.coordinates === "(2, 2)") {return setState({...this.state, yCoordinate: 2})}
+  if (this.state.coordinates === "(3, 2)") {return setState({...this.state, yCoordinate: 3})}
+  if (this.state.coordinates === "(1, 3)") {return setState({...this.state, yCoordinate: 1})}
+  if (this.state.coordinates === "(2, 3)") {return setState({...this.state, yCoordinate: 2})}
+  if (this.state.coordinates === "(3, 3)") {return setState({...this.state, yCoordinate: 3})}
 }
 
-
+updateY = () => {
+  if (this.state.coordinates === "(1, 1)") {return setState({...this.state, yCoordinate: 1})}
+  if (this.state.coordinates === "(2, 1)") {return setState({...this.state, yCoordinate: 1})}
+  if (this.state.coordinates === "(3, 1)") {return setState({...this.state, yCoordinate: 1})}
+  if (this.state.coordinates === "(1, 2)") {return setState({...this.state, yCoordinate: 2})}
+  if (this.state.coordinates === "(2, 2)") {return setState({...this.state, yCoordinate: 2})}
+  if (this.state.coordinates === "(3, 2)") {return setState({...this.state, yCoordinate: 2})}
+  if (this.state.coordinates === "(1, 3)") {return setState({...this.state, yCoordinate: 3})}
+  if (this.state.coordinates === "(2, 3)") {return setState({...this.state, yCoordinate: 3})}
+  if (this.state.coordinates === "(3, 3)") {return setState({...this.state, yCoordinate: 3})}
+}
 
   reset = () => {
     this.setState({
