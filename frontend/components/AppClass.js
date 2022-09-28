@@ -123,26 +123,15 @@ updateY = () => {
     this.setState({ board: this.state.board.slice(3)})
   }
 
-  moveBDownWithPop = () => {
+  moveBDownWithUnshiftAndPop = () => {
     const newBoard = [...this.state.board]
     newBoard.unshift(newBoard.pop(), newBoard.pop(), newBoard.pop())
     this.setState({...this.state, board: newBoard})
   }
 
-  moveBUpWithPop = () => {
+  moveBUpWithPushAndShift = () => {
     const newBoard = [...this.state.board]
     newBoard.push(newBoard.shift(), newBoard.shift(), newBoard.shift(),)
-    this.setState({...this.state, board: newBoard})
-  }
-
-  removeThreeItemsFromFrontOfArray = () => {
-    this.setState({ board: this.state.board.slice(3)})
-  }
-
-  addThreeToBackOfArray = () => {
-    const threeElementsArray = ['', '', '']
-    const newBoard = [...this.state.board]
-    newBoard.concat(threeElementsArray)
     this.setState({...this.state, board: newBoard})
   }
 
@@ -150,21 +139,8 @@ updateY = () => {
     this.setState({ board: this.state.board.slice(1)})
   } 
 
-  remove3ItemsFromBackOfArray = () => {
-    const newBoard = [...this.state.board]
-    newBoard.splice(6, 3)
-    this.setState({ ...this.state, board: newBoard})
-  } 
-
-  moveTheBUpFunction = () => {
-    this.addThreeToBeginningOfArray(this.remove3ItemsFromBackOfArray())
-  }
-
-  add3ItemsToBackOfArray = () => {
-    const newBoard = [...this.state.board]
-    newBoard.push('', '', '')
-    this.setState({...this.state, board: newBoard})
-    console.log(newBoard)
+  incrementTotalMoves = () => {
+    this.setState({totalMoves: this.state.totalMoves + 1})
   }
 
   moveRight = () => {
@@ -180,15 +156,12 @@ updateY = () => {
   }
 
   moveUp = () => {
-    // this.removeThreeItemsFromFrontOfArray()
-    // this.addThreeToBeginningOfArray()
-    this.moveBUpWithPop()
+    this.moveBUpWithPushAndShift()
     this.incrementTotalMoves() 
   } 
 
   moveDown = () => {
-    // this.addThreeToFront()
-    this.moveBDownWithPop()
+    this.moveBDownWithUnshiftAndPop()
     this.incrementTotalMoves()
    } 
 
@@ -222,10 +195,6 @@ updateY = () => {
     else if(this.state.board.indexOf('B', 0) === 7) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
     else {return this.moveDown()}
-  }
-
-  incrementTotalMoves = () => {
-    this.setState({totalMoves: this.state.totalMoves + 1})
   }
 
   onChangeOfEmail = (evt) => {
