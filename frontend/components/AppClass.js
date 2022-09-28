@@ -15,29 +15,6 @@ export default class AppClass extends React.Component {
       yCoordinate: 1
   }
 
-addThreeToFront = () => {
-  const newBoard = [...this.state.board]
-  newBoard.unshift('', '', '')
-  this.setState({
-    ...this.state, 
-    board: newBoard
-  })
-}
-
-removeThreeFromBack = () => {
-  const newBoard = [...this.state.board]
-  newBoard.splice(8, 3)
-  this.setState({
-    ...this.state, 
-    board: newBoard
-  })
-}
-
-moveBOverThree = () => {
-  this.addThreeToFront(this.removeThreeFromBack())
-}
-
-
 getXY = (coordinates) => {
     if (this.state.board.indexOf('B') === 0) {return coordinates = "(1, 1)"}
     if (this.state.board.indexOf('B') === 1) {return coordinates = "(2, 1)"}
@@ -48,21 +25,7 @@ getXY = (coordinates) => {
     if (this.state.board.indexOf('B') === 6) {return coordinates = "(1, 3)"}
     if (this.state.board.indexOf('B') === 7) {return coordinates = "(2, 3)"}
     if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
-} //WORKING PERFECTLY
-
-// updateX = (xCoordinate) => {
-//   if (this.state.coordinates === "(1, 1)") {return xCoordinate = 1}
-//   if (this.state.coordinates === "(2, 1)") {return xCoordinate = 2}
-//   if (this.state.coordinates === "(3, 1)") {return xCoordinate = 3}
-//   if (this.state.coordinates === "(1, 2)") {return xCoordinate = 1}
-//   if (this.state.coordinates === "(2, 2)") {return xCoordinate = 2}
-//   if (this.state.coordinates === "(3, 2)") {return xCoordinate = 3}
-//   if (this.state.coordinates === "(1, 3)") {return xCoordinate = 1}
-//   if (this.state.coordinates === "(2, 3)") {return xCoordinate = 2}
-//   if (this.state.coordinates === "(3, 3)") {return xCoordinate = 3}
-//} / //this part is not working yet, i checked with Postman and the 
-//x and y coordinates are not updating with state, this is above updateXY() function is 
-//not working yet, Tuesday 9-27-2022 7:00PM
+} 
 
 updateX = () => {
   if (this.state.coordinates === "(1, 1)") {return setState({...this.state, yCoordinate: 1})}
