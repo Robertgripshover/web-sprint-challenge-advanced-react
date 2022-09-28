@@ -15,16 +15,6 @@ export default class AppClass extends React.Component {
       yCoordinate: 1
   }
 
-//add THREE to the back of the array
-// board.push('', '', '')
-//add THREE to the front of the array
-// board.unshift('', '', '')
-
-//remove THREE from the front of the array
-// board.splice(0, 3)
-//remove THREE from the back of array
-// board.splice(6, 3)
-
 addThreeToFront = () => {
   const newBoard = [...this.state.board]
   newBoard.unshift('', '', '')
@@ -104,10 +94,12 @@ updateY = () => {
       message: '', 
       board: ['', '', '', '', 'B', '', '', '', ''],
       totalMoves: 0,
-      emailInput: ''
+      emailInput: '',
+      xCoordinate: 2,
+      yCoordinate: 2
     })
     console.log('resetting!')
-  }//WORKING PERFECTLY
+  }
 
   addToFrontOfArray = () => {
     const newBoard = [...this.state.board]
@@ -127,10 +119,24 @@ updateY = () => {
     })
   }
 
-  addThreeToBeginningOfArray = () => {
+  removeThreeItemsFromFrontOfArray = () => {
+    this.setState({ board: this.state.board.slice(3)})
+  }
+
+  moveBDownWithPop = () => {
     const newBoard = [...this.state.board]
-    newBoard.unshift('', '', '')
+    newBoard.unshift(newBoard.pop(), newBoard.pop(), newBoard.pop())
     this.setState({...this.state, board: newBoard})
+  }
+
+  moveBUpWithPop = () => {
+    const newBoard = [...this.state.board]
+    newBoard.push(newBoard.shift(), newBoard.shift(), newBoard.shift(),)
+    this.setState({...this.state, board: newBoard})
+  }
+
+  removeThreeItemsFromFrontOfArray = () => {
+    this.setState({ board: this.state.board.slice(3)})
   }
 
   addThreeToBackOfArray = () => {
@@ -138,10 +144,6 @@ updateY = () => {
     const newBoard = [...this.state.board]
     newBoard.concat(threeElementsArray)
     this.setState({...this.state, board: newBoard})
-  }
-
-  removeThreeItemsFromFrontOfArray = () => {
-    this.setState({ board: this.state.board.slice(3)})
   }
 
   removeItemFromFrontOfArray = () => {
@@ -153,6 +155,10 @@ updateY = () => {
     newBoard.splice(6, 3)
     this.setState({ ...this.state, board: newBoard})
   } 
+
+  moveTheBUpFunction = () => {
+    this.addThreeToBeginningOfArray(this.remove3ItemsFromBackOfArray())
+  }
 
   add3ItemsToBackOfArray = () => {
     const newBoard = [...this.state.board]
@@ -174,12 +180,15 @@ updateY = () => {
   }
 
   moveUp = () => {
-    this.removeThreeItemsFromFrontOfArray()
+    // this.removeThreeItemsFromFrontOfArray()
+    // this.addThreeToBeginningOfArray()
+    this.moveBUpWithPop()
     this.incrementTotalMoves() 
   } 
 
   moveDown = () => {
-    this.addThreeToFront()
+    // this.addThreeToFront()
+    this.moveBDownWithPop()
     this.incrementTotalMoves()
    } 
 
