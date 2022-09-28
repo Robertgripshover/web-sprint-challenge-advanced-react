@@ -1,4 +1,7 @@
 import React, {useState} from 'react'
+import axios from 'axios'
+
+const PostURL = 'http://localhost:9000/api/result'
 
 export default function AppFunctional(props) {
 
@@ -24,29 +27,29 @@ export default function AppFunctional(props) {
     if (state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
   } 
 
-  const updateX = () => {
-    if (state.coordinates === "(1, 1)") {return setState({...state, yCoordinate: 1})}
-    if (state.coordinates === "(2, 1)") {return setState({...state, yCoordinate: 2})}
-    if (state.coordinates === "(3, 1)") {return setState({...state, yCoordinate: 3})}
-    if (state.coordinates === "(1, 2)") {return setState({...state, yCoordinate: 1})}
-    if (state.coordinates === "(2, 2)") {return setState({...state, yCoordinate: 2})}
-    if (state.coordinates === "(3, 2)") {return setState({...state, yCoordinate: 3})}
-    if (state.coordinates === "(1, 3)") {return setState({...state, yCoordinate: 1})}
-    if (state.coordinates === "(2, 3)") {return setState({...state, yCoordinate: 2})}
-    if (state.coordinates === "(3, 3)") {return setState({...state, yCoordinate: 3})}
-  }
+  // const updateX = () => {
+  //   if (state.coordinates === "(1, 1)") {return setState({...state, yCoordinate: 1})}
+  //   if (state.coordinates === "(2, 1)") {return setState({...state, yCoordinate: 2})}
+  //   if (state.coordinates === "(3, 1)") {return setState({...state, yCoordinate: 3})}
+  //   if (state.coordinates === "(1, 2)") {return setState({...state, yCoordinate: 1})}
+  //   if (state.coordinates === "(2, 2)") {return setState({...state, yCoordinate: 2})}
+  //   if (state.coordinates === "(3, 2)") {return setState({...state, yCoordinate: 3})}
+  //   if (state.coordinates === "(1, 3)") {return setState({...state, yCoordinate: 1})}
+  //   if (state.coordinates === "(2, 3)") {return setState({...state, yCoordinate: 2})}
+  //   if (state.coordinates === "(3, 3)") {return setState({...state, yCoordinate: 3})}
+  // }
 
-  const updateY = () => {
-    if (state.coordinates === "(1, 1)") {return setState({...state, yCoordinate: 1})}
-    if (state.coordinates === "(2, 1)") {return setState({...state, yCoordinate: 1})}
-    if (state.coordinates === "(3, 1)") {return setState({...state, yCoordinate: 1})}
-    if (state.coordinates === "(1, 2)") {return setState({...state, yCoordinate: 2})}
-    if (state.coordinates === "(2, 2)") {return setState({...state, yCoordinate: 2})}
-    if (state.coordinates === "(3, 2)") {return setState({...state, yCoordinate: 2})}
-    if (state.coordinates === "(1, 3)") {return setState({...state, yCoordinate: 3})}
-    if (state.coordinates === "(2, 3)") {return setState({...state, yCoordinate: 3})}
-    if (state.coordinates === "(3, 3)") {return setState({...state, yCoordinate: 3})}
-  }
+  // const updateY = () => {
+  //   if (state.coordinates === "(1, 1)") {return setState({...state, yCoordinate: 1})}
+  //   if (state.coordinates === "(2, 1)") {return setState({...state, yCoordinate: 1})}
+  //   if (state.coordinates === "(3, 1)") {return setState({...state, yCoordinate: 1})}
+  //   if (state.coordinates === "(1, 2)") {return setState({...state, yCoordinate: 2})}
+  //   if (state.coordinates === "(2, 2)") {return setState({...state, yCoordinate: 2})}
+  //   if (state.coordinates === "(3, 2)") {return setState({...state, yCoordinate: 2})}
+  //   if (state.coordinates === "(1, 3)") {return setState({...state, yCoordinate: 3})}
+  //   if (state.coordinates === "(2, 3)") {return setState({...state, yCoordinate: 3})}
+  //   if (state.coordinates === "(3, 3)") {return setState({...state, yCoordinate: 3})}
+  // }
 
   const reset = () => {
     setState({
@@ -77,10 +80,6 @@ export default function AppFunctional(props) {
       ...state, 
       board: newBoard
     })
-  }
-
-  const removeThreeItemsFromFrontOfArray = () => {
-    setState({ board: state.board.slice(3)})
   }
 
   const moveBDownWithUnshiftAndPop = () => {
@@ -188,7 +187,7 @@ export default function AppFunctional(props) {
   return (
     <div id="wrapper" className={props.className}>
  <div className="info">
-          <h3 id="coordinates">{`Coordinates ${getXY(state.indexOfB)}`}</h3>
+          <h3 id="coordinates">{`Coordinates ${getXY()}`}</h3>
           <h3 id="steps">You moved {state.totalMoves} times</h3>
         </div>
 
