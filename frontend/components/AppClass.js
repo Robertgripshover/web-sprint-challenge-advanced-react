@@ -61,7 +61,6 @@ updateY = () => {
       xCoordinate: 2,
       yCoordinate: 2
     })
-    console.log('resetting!')
   }
 
   addToFrontOfArray = () => {
@@ -138,6 +137,7 @@ updateY = () => {
     else if(this.state.board.indexOf('B', 0) === 5) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
     else {return this.moveRight()}
+    
   }
 
   handleLeftClick = () => {
