@@ -15,40 +15,41 @@ export default class AppClass extends React.Component {
       yCoordinate: 1
   }
 
+
 getXY = (coordinates) => {
-    if (this.state.board.indexOf('B') === 0) {return coordinates = "(1, 1)"}
-    else if (this.state.board.indexOf('B') === 1) {return coordinates = "(2, 1)"}
-    else if (this.state.board.indexOf('B') === 2) {return coordinates = "(3, 1)"}
-    else if (this.state.board.indexOf('B') === 3) {return coordinates = "(1, 2)"}
-    else if (this.state.board.indexOf('B') === 4) {return coordinates = "(2, 2)"}
-    else if (this.state.board.indexOf('B') === 5) {return coordinates = "(3, 2)"}
-    else if (this.state.board.indexOf('B') === 6) {return coordinates = "(1, 3)"}
-    else if (this.state.board.indexOf('B') === 7) {return coordinates = "(2, 3)"}
-    else if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
+  if (this.state.board.indexOf('B') === 0) {return coordinates = "(1, 1)"}
+  else if (this.state.board.indexOf('B') === 1) {return coordinates = "(2, 1)"}
+  else if (this.state.board.indexOf('B') === 2) {return coordinates = "(3, 1)"}
+  else if (this.state.board.indexOf('B') === 3) {return coordinates = "(1, 2)"}
+  else if (this.state.board.indexOf('B') === 4) {return coordinates = "(2, 2)"}
+  else if (this.state.board.indexOf('B') === 5) {return coordinates = "(3, 2)"}
+  else if (this.state.board.indexOf('B') === 6) {return coordinates = "(1, 3)"}
+  else if (this.state.board.indexOf('B') === 7) {return coordinates = "(2, 3)"}
+  else if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
 } 
 
-updateX = () => {
-  if (this.state.coordinates === "(1, 1)") {return setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 1)") {return setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 1)") {return setState({...this.state, yCoordinate: 3})}
-  else if (this.state.coordinates === "(1, 2)") {return setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 2)") {return setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 2)") {return setState({...this.state, yCoordinate: 3})}
-  else if (this.state.coordinates === "(1, 3)") {return setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 3)") {return setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 3)") {return setState({...this.state, yCoordinate: 3})}
+updateX = (xCoordinate) => {
+  if (this.state.coordinates === "(1, 1)") {return xCoordinate = 1}
+  else if (this.state.coordinates === "(2, 1)") {return xCoordinate = 2}
+  else if (this.state.coordinates === "(3, 1)") {return xCoordinate = 3}
+  else if (this.state.coordinates === "(1, 2)") {return xCoordinate = 1}
+  else if (this.state.coordinates === "(2, 2)") {return xCoordinate = 2}
+  else if (this.state.coordinates === "(3, 2)") {return xCoordinate = 3}
+  else if (this.state.coordinates === "(1, 3)") {return xCoordinate = 1}
+  else if (this.state.coordinates === "(2, 3)") {return xCoordinate = 2}
+  else if (this.state.coordinates === "(3, 3)") {return xCoordinate = 3}
 }
 
-updateY = () => {
-  if (this.state.coordinates === "(1, 1)") {return setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 1)") {return setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(3, 1)") {return setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(1, 2)") {return setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(2, 2)") {return setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 2)") {return setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(1, 3)") {return setState({...this.state, yCoordinate: 3})}
-  else if (this.state.coordinates === "(2, 3)") {return setState({...this.state, yCoordinate: 3})}
-  else if (this.state.coordinates === "(3, 3)") {return setState({...this.state, yCoordinate: 3})}
+updateY = (yCoordinate) => {
+  if (this.state.coordinates === "(1, 1)") {return yCoordinate = 1}
+  else if (this.state.coordinates === "(2, 1)") {return yCoordinate = 1}
+  else if (this.state.coordinates === "(3, 1)") {return yCoordinate = 1}
+  else if (this.state.coordinates === "(1, 2)") {return yCoordinate = 2}
+  else if (this.state.coordinates === "(2, 2)") {return yCoordinate = 2}
+  else if (this.state.coordinates === "(3, 2)") {return yCoordinate = 2}
+  else if (this.state.coordinates === "(1, 3)") {return yCoordinate = 3}
+  else if (this.state.coordinates === "(2, 3)") {return yCoordinate = 3}
+  else if (this.state.coordinates === "(3, 3)") {return yCoordinate = 3}
 }
 
   reset = () => {
@@ -81,10 +82,6 @@ updateY = () => {
     })
   }
 
-  removeThreeItemsFromFrontOfArray = () => {
-    this.setState({ board: this.state.board.slice(3)})
-  }
-
   moveBDownWithUnshiftAndPop = () => {
     const newBoard = [...this.state.board]
     newBoard.unshift(newBoard.pop(), newBoard.pop(), newBoard.pop())
@@ -105,9 +102,9 @@ updateY = () => {
     this.setState({totalMoves: this.state.totalMoves + 1})
   }
 
-  clearMovementMessage = () => {
-    this.setState({...this.state, message: ''})
-  }
+  // clearMovementMessage = () => {
+  //   this.setState({...this.state, message: ''})
+  // } THIS NEED TO BE ADDED TO MAKE THE 'YOU CAN'T MOVE MESSAGE GO AWAY
 
   moveRight = () => {
     this.removeItemFromFrontOfArray()
