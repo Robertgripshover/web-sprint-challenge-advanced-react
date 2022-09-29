@@ -167,6 +167,8 @@ updateY = () => {
   onChangeOfEmail = (evt) => {
     const { value } = evt.target
     this.setState({ ...this.state, emailInput: value })
+    this.updateX()
+    this.updateY()
   }
 
 postNewEmail= () => {
