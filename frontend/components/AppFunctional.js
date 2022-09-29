@@ -198,14 +198,14 @@ const onSubmit = (evt) => {
   return (
     <div id="wrapper" className={props.className}>
         <div className="info">
-          <h3 id="coordinates">{`Coordinates ${getXY(indexOfB)}`}</h3>
-          <h3 id="steps">You moved {totalMoves} times</h3>
+          <h3 id="coordinates">{`Coordinates ${getXY(state.indexOfB)}`}</h3>
+          <h3 id="steps">You moved {state.totalMoves} times</h3>
         </div>
 
       <div id="grid">
 
           {
-            board.map((val, idx) => {
+            state.board.map((val, idx) => {
               return (
                 <div key={idx} className={`square${val ? ' active' : ''}`}>{val}</div>
               ) 
@@ -214,7 +214,7 @@ const onSubmit = (evt) => {
       </div>
 
         <div className="info">
-          <h3 id="message">{message}</h3>
+          <h3 id="message">{state.message}</h3>
         </div>
         <div id="keypad">
           <button onClick={handleLeftClick} id="left">LEFT</button>
