@@ -102,10 +102,10 @@ const removeItemFromFrontOfArray = () => {
 
 //NEED TO GET THIS WORKING! NEED TO USE SPREAD OPERATOR vvv
 
-const incrementTotalMoves = () => {
-  const newTotalMoves = [...state.totalMoves]
-  setState({...state, totalMoves: newTotalMoves++})
-}
+// const incrementTotalMoves = () => {
+//   const newTotalMoves = [...state.totalMoves]
+//   setState({...state, totalMoves: newTotalMoves++})
+// }
 
 //NEED TO GET THIS WORKING! NEED TO USE SPREAD OPERATOR ^^^
 
@@ -117,23 +117,23 @@ const clearMovementMessage = () => {
 const moveRight = () => {
   removeItemFromFrontOfArray()
   addToFrontOfArray()
-  incrementTotalMoves()
+  // incrementTotalMoves()
 }
 
 const moveLeft = () => {
   removeItemFromFrontOfArray()
   addToBackOfArray()
-  incrementTotalMoves()
+  // incrementTotalMoves()
 }
 
 const moveUp = () => {
   moveBUpWithPushAndShift()
-  incrementTotalMoves()
+  // incrementTotalMoves()
 } 
 
 const moveDown = () => {
   moveBDownWithUnshiftAndPop()
-  incrementTotalMoves()
+  // incrementTotalMoves()
 } 
 
 const handleRightClick = () => {
