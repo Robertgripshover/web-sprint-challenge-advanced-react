@@ -1,7 +1,8 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import axios from 'axios'
 
 
+const PostURL = 'http://localhost:9000/api/result'
 
 export default function AppFunctional(props) {
 
@@ -98,9 +99,16 @@ const removeItemFromFrontOfArray = () => {
   setState({ board: state.board.slice(1)})
 } 
 
+
+//NEED TO GET THIS WORKING! NEED TO USE SPREAD OPERATOR vvv
+
 const incrementTotalMoves = () => {
-  setState({totalMoves: state.totalMoves + 1})
+  const newTotalMoves = [...state.totalMoves]
+  setState({...state, totalMoves: newTotalMoves++})
 }
+
+//NEED TO GET THIS WORKING! NEED TO USE SPREAD OPERATOR ^^^
+
 
 const clearMovementMessage = () => {
   setState({...state, message: ''})
@@ -188,8 +196,6 @@ const onSubmit = (evt) => {
   postNewEmail()
   setState({...state, emailInput: ''})
 }
-
-
 
   return (
     <div id="wrapper" className={props.className}>
