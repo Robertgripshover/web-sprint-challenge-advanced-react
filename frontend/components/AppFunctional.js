@@ -103,8 +103,8 @@ const removeItemFromFrontOfArray = () => {
 //NEED TO GET THIS WORKING! NEED TO USE SPREAD OPERATOR vvv
 
 const incrementTotalMoves = () => {
-  const newTotalMoves = [...state.totalMoves]
-  setState({totalMoves: newTotalMoves++})
+  let newTotalMoves = state.totalMoves + 1
+  setState({totalMoves: newTotalMoves})
 }
 
 //NEED TO GET THIS WORKING! NEED TO USE SPREAD OPERATOR ^^^
