@@ -10,11 +10,15 @@ export default function AppFunctional(props) {
     coordinates: '',
     message: '', 
     board: ['', '', '', '', 'B', '', '', '', ''],
-    totalMoves: 0,
     emailInput: '',
     xCoordinate: 1,
     yCoordinate: 1
 })
+
+//
+//EXPERIMENTAL
+//
+  const [count, setCount] = useState(0)
 
   
 const getXY = (coordinates) => {
@@ -100,14 +104,9 @@ const removeItemFromFrontOfArray = () => {
 } 
 
 
-//NEED TO GET THIS WORKING! NEED TO USE SPREAD OPERATOR vvv
-
 const incrementTotalMoves = () => {
-  let newTotalMoves = state.totalMoves + 1
-  setState({totalMoves: newTotalMoves})
+  setCount(count + 1)
 }
-
-//NEED TO GET THIS WORKING! NEED TO USE SPREAD OPERATOR ^^^
 
 
 const clearMovementMessage = () => {
@@ -180,7 +179,7 @@ const postNewEmail= () => {
   axios.post(PostURL,
      {x: state.xCoordinate,
       y: state.yCoordinate,
-      steps: state.totalMoves,
+      steps: count,
       email: state.emailInput })
       .then(res => {
         console.log(res.data)
@@ -201,7 +200,7 @@ const onSubmit = (evt) => {
     <div id="wrapper" className={props.className}>
         <div className="info">
           <h3 id="coordinates">{`Coordinates ${getXY(state.indexOfB)}`}</h3>
-          <h3 id="steps">You moved {state.totalMoves} times</h3>
+          <h3 id="steps">You moved {count} times</h3>
         </div>
 
       <div id="grid">
