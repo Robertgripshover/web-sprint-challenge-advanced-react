@@ -187,6 +187,7 @@ postNewEmail= () => {
   onSubmit = (evt) => {
     evt.preventDefault()
     this.postNewEmail()
+    this.reset()
     this.setState({...this.state, emailInput: ''})
   } 
 

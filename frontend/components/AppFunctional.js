@@ -62,11 +62,11 @@ const reset = () => {
     indexOfB: 4,  
     message: '', 
     board: ['', '', '', '', 'B', '', '', '', ''],
-    totalMoves: 0,
     emailInput: '',
     xCoordinate: 2,
     yCoordinate: 2
   })
+  setCount(0)
 }
 
 const addToFrontOfArray = () => {
@@ -193,6 +193,7 @@ const postNewEmail= () => {
 const onSubmit = (evt) => {
   evt.preventDefault()
   postNewEmail()
+  reset()
   setState({...state, emailInput: ''})
 }
 
