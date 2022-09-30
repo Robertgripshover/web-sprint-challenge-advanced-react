@@ -181,6 +181,7 @@ postNewEmail= () => {
         })
         .catch(err => {
           console.log(err)
+          this.setState({...this.state, message: err.message})
         })
   } 
 
