@@ -130,7 +130,11 @@ updateY = (yCoordinate) => {
   //THEN you can clear the 'message' the next time the button is clicked"
 
   clearMovementMessage = () => {
-    this.setState({...this.state, message: ''})
+    const clearedMessage = ""
+    if (this.state.message === "You can't go right") {return this.setState({...this.state, message: clearedMessage})}
+    else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
+    else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
+    else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
   }
 
 
