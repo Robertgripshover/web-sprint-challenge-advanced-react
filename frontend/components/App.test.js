@@ -6,7 +6,7 @@
 //   - Test that typing on the input results in its value changing to the entered text.
 
 import React from 'react';
-import {render} from "@testing-library/react";
+import {render, screen} from "@testing-library/react";
 import AppClass from './AppClass';
 
 test('sanity', () => {
@@ -16,6 +16,24 @@ test('sanity', () => {
 test('Render without errors', () => {
   render(<AppClass />)
 })
+
+// test('When app mounts, header Welcome to the GRID exists on the screen', () => {
+//   //Arrage, -->>
+//   // that is getting the AppClass rendered to the screen
+//   //for it to be able to be tested
+//   render(<AppClass />)
+
+//   //Act, -->>
+//   const leftButton = screen.getByTestId('left')
+//   //if we were to do queryByText it would move on to 
+
+//   //Assert -->>
+//   expect(leftButton).toBeInTheDocument()
+//   expect(leftButton).toHaveTextConent(/left/i)
+
+
+// })
+
 
 
 
