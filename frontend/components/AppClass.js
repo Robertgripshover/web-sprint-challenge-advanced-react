@@ -125,6 +125,11 @@ updateY = (yCoordinate) => {
     this.incrementTotalMoves()
   } 
 
+  clearMovementMessage = () => {
+  this.setState({...this.state, message: ''})
+}
+
+
   handleRightClick = () => {
     const newMessage = "You can't go right"
     if (this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
