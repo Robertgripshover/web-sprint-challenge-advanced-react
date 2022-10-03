@@ -109,9 +109,17 @@ const incrementTotalMoves = () => {
 }
 
 
-// const clearMovementMessage = () => {
-//   setState({message: ''})
-// }
+  //I need logic that will say, "if the 'message' part of state has the text
+  //'cant go right','cant go left','cant go up','cant go down' 
+  //THEN you can clear the 'message' the next time the button is clicked"
+
+const clearMovementMessage = () => {
+    const clearedMessage = ""
+    if (this.state.message === "You can't go right") {return this.setState({...this.state, message: clearedMessage})}
+    else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
+    else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
+    else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
+  }
 
 const moveRight = () => {
   removeItemFromFrontOfArray()
