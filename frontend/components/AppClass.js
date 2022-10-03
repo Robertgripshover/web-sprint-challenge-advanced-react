@@ -103,10 +103,6 @@ updateY = (yCoordinate) => {
     this.setState({totalMoves: this.state.totalMoves + 1})
   }
 
-  // clearMovementMessage = () => {
-  //   this.setState({...this.state, message: ''})
-  // } THIS NEED TO BE ADDED TO MAKE THE 'YOU CAN'T MOVE MESSAGE GO AWAY
-
   moveRight = () => {
     this.removeItemFromFrontOfArray()
     this.addToFrontOfArray()
@@ -195,7 +191,7 @@ postNewEmail= () => {
   render() {
 
     const { className } = this.props
-    const { coordinates, totalMoves, board, indexOfB, message } = this.state
+    const { totalMoves, board, indexOfB, message } = this.state
 
     return (
       <div id="wrapper" className={className}>

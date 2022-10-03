@@ -109,9 +109,9 @@ const incrementTotalMoves = () => {
 }
 
 
-const clearMovementMessage = () => {
-  setState({...state, message: ''})
-}
+// const clearMovementMessage = () => {
+//   setState({message: ''})
+// }
 
 const moveRight = () => {
   removeItemFromFrontOfArray()
