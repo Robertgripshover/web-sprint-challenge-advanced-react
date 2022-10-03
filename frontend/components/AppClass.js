@@ -125,9 +125,13 @@ updateY = (yCoordinate) => {
     this.incrementTotalMoves()
   } 
 
+  //I need logic that will say, "if the 'message' part of state has the text
+  //'cant go right','cant go left','cant go up','cant go down' 
+  //THEN you can clear the 'message' the next time the button is clicked"
+
   clearMovementMessage = () => {
-  this.setState({...this.state, message: ''})
-}
+    this.setState({...this.state, message: ''})
+  }
 
 
   handleRightClick = () => {
