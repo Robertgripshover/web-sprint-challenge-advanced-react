@@ -107,26 +107,22 @@ updateY = (yCoordinate) => {
     this.removeItemFromFrontOfArray()
     this.addToFrontOfArray()
     this.incrementTotalMoves()
-    this.clearMovementMessage()
   }
 
   moveLeft = () => {
     this.removeItemFromFrontOfArray()
     this.addToBackOfArray()
     this.incrementTotalMoves()
-    this.clearMovementMessage()
   }
 
   moveUp = () => {
     this.moveBUpWithPushAndShift()
     this.incrementTotalMoves()
-    this.clearMovementMessage()
   } 
 
   moveDown = () => {
     this.moveBDownWithUnshiftAndPop()
     this.incrementTotalMoves()
-    this.clearMovementMessage()
   } 
 
   //I need logic that will say, "if the 'message' part of state has the text
@@ -139,7 +135,6 @@ updateY = (yCoordinate) => {
     else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
     else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
     else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
-    else if(this.state.message === "") {return this.setState({...this.state, message: clearedMessage})}
   }
 
 
