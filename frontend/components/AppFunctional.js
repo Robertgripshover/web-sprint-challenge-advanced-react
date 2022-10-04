@@ -194,8 +194,8 @@ const postNewEmail= () => {
         setState({...state, message: res.data.message})
       })
       .catch(err => {
-        console.log(err)
-        setState({...state, message: err.data.message})
+        console.log(err.message)
+        setState({...state, message: err.response.data.message})
       })
 } 
 
