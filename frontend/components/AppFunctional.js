@@ -33,29 +33,56 @@ const getXY = (coordinates) => {
   else if (state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
 } 
 
-const updateX = (xCoordinate) => {
-  if (state.coordinates === "(1, 1)") {return xCoordinate = 1}
-  else if (state.coordinates === "(2, 1)") {return xCoordinate = 2}
-  else if (state.coordinates === "(3, 1)") {return xCoordinate = 3}
-  else if (state.coordinates === "(1, 2)") {return xCoordinate = 1}
-  else if (state.coordinates === "(2, 2)") {return xCoordinate = 2}
-  else if (state.coordinates === "(3, 2)") {return xCoordinate = 3}
-  else if (state.coordinates === "(1, 3)") {return xCoordinate = 1}
-  else if (state.coordinates === "(2, 3)") {return xCoordinate = 2}
-  else if (state.coordinates === "(3, 3)") {return xCoordinate = 3}
+
+const updateX = () => {
+  if (state.coordinates === "(1, 1)") {return setState({...this.state, xCoordinate: 1})}
+  else if (state.coordinates === "(2, 1)") {return setState({...state, xCoordinate: 2})}
+  else if (state.coordinates === "(3, 1)") {return setState({...state, xCoordinate: 3})}
+  else if (state.coordinates === "(1, 2)") {return setState({...state, xCoordinate: 1})}
+  else if (state.coordinates === "(2, 2)") {return setState({...state, xCoordinate: 2})}
+  else if (state.coordinates === "(3, 2)") {return setState({...state, xCoordinate: 3})}
+  else if (state.coordinates === "(1, 3)") {return setState({...state, xCoordinate: 1})}
+  else if (state.coordinates === "(2, 3)") {return setState({...state, xCoordinate: 2})}
+  else if (state.coordinates === "(3, 3)") {return setState({...state, xCoordinate: 3})}
 }
 
-const updateY = (yCoordinate) => {
-  if (state.coordinates === "(1, 1)") {return yCoordinate = 1}
-  else if (state.coordinates === "(2, 1)") {return yCoordinate = 1}
-  else if (state.coordinates === "(3, 1)") {return yCoordinate = 1}
-  else if (state.coordinates === "(1, 2)") {return yCoordinate = 2}
-  else if (state.coordinates === "(2, 2)") {return yCoordinate = 2}
-  else if (state.coordinates === "(3, 2)") {return yCoordinate = 2}
-  else if (state.coordinates === "(1, 3)") {return yCoordinate = 3}
-  else if (state.coordinates === "(2, 3)") {return yCoordinate = 3}
-  else if (state.coordinates === "(3, 3)") {return yCoordinate = 3}
+const updateY = () => {
+  if (state.coordinates === "(1, 1)") {return setState({...state, yCoordinate: 1})}
+  else if (state.coordinates === "(2, 1)") {return setState({...state, yCoordinate: 1})}
+  else if (state.coordinates === "(3, 1)") {return setState({...state, yCoordinate: 1})}
+  else if (state.coordinates === "(1, 2)") {return setState({...state, yCoordinate: 2})}
+  else if (state.coordinates === "(2, 2)") {return setState({...state, yCoordinate: 2})}
+  else if (state.coordinates === "(3, 2)") {return setState({...state, yCoordinate: 2})}
+  else if (state.coordinates === "(1, 3)") {return setState({...state, yCoordinate: 3})}
+  else if (state.coordinates === "(2, 3)") {return setState({...state, yCoordinate: 3})}
+  else if (state.coordinates === "(3, 3)") {return setState({...state, yCoordinate: 3})}
 }
+
+
+
+// const updateX = (xCoordinate) => {
+//   if (state.coordinates === "(1, 1)") {return xCoordinate = 1}
+//   else if (state.coordinates === "(2, 1)") {return xCoordinate = 2}
+//   else if (state.coordinates === "(3, 1)") {return xCoordinate = 3}
+//   else if (state.coordinates === "(1, 2)") {return xCoordinate = 1}
+//   else if (state.coordinates === "(2, 2)") {return xCoordinate = 2}
+//   else if (state.coordinates === "(3, 2)") {return xCoordinate = 3}
+//   else if (state.coordinates === "(1, 3)") {return xCoordinate = 1}
+//   else if (state.coordinates === "(2, 3)") {return xCoordinate = 2}
+//   else if (state.coordinates === "(3, 3)") {return xCoordinate = 3}
+// }
+
+// const updateY = (yCoordinate) => {
+//   if (state.coordinates === "(1, 1)") {return yCoordinate = 1}
+//   else if (state.coordinates === "(2, 1)") {return yCoordinate = 1}
+//   else if (state.coordinates === "(3, 1)") {return yCoordinate = 1}
+//   else if (state.coordinates === "(1, 2)") {return yCoordinate = 2}
+//   else if (state.coordinates === "(2, 2)") {return yCoordinate = 2}
+//   else if (state.coordinates === "(3, 2)") {return yCoordinate = 2}
+//   else if (state.coordinates === "(1, 3)") {return yCoordinate = 3}
+//   else if (state.coordinates === "(2, 3)") {return yCoordinate = 3}
+//   else if (state.coordinates === "(3, 3)") {return yCoordinate = 3}
+// }
 
 const reset = () => {
   setState({

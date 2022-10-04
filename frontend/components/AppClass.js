@@ -30,27 +30,27 @@ getXY = (coordinates) => {
 } 
 
 updateX = () => {
-  if (this.state.coordinates === "(1, 1)") {return this.setState({xCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 1)") {return this.setState({xCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 1)") {return this.setState({xCoordinate: 3})}
-  else if (this.state.coordinates === "(1, 2)") {return this.setState({xCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 2)") {return this.setState({xCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 2)") {return this.setState({xCoordinate: 3})}
-  else if (this.state.coordinates === "(1, 3)") {return this.setState({xCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 3)") {return this.setState({xCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 3)") {return this.setState({xCoordinate: 3})}
+  if (this.state.coordinates === "(1, 1)") {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.coordinates === "(2, 1)") {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.coordinates === "(3, 1)") {return this.setState({...this.state, xCoordinate: 3})}
+  else if (this.state.coordinates === "(1, 2)") {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.coordinates === "(2, 2)") {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.coordinates === "(3, 2)") {return this.setState({...this.state, xCoordinate: 3})}
+  else if (this.state.coordinates === "(1, 3)") {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.coordinates === "(2, 3)") {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.coordinates === "(3, 3)") {return this.setState({...this.state, xCoordinate: 3})}
 }
 
 updateY = () => {
-  if (this.state.coordinates === "(1, 1)") {return this.setState({yCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 1)") {return this.setState({yCoordinate: 1})}
-  else if (this.state.coordinates === "(3, 1)") {return this.setState({yCoordinate: 1})}
-  else if (this.state.coordinates === "(1, 2)") {return this.setState({yCoordinate: 2})}
-  else if (this.state.coordinates === "(2, 2)") {return this.setState({yCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 2)") {return this.setState({yCoordinate: 2})}
-  else if (this.state.coordinates === "(1, 3)") {return this.setState({yCoordinate: 3})}
-  else if (this.state.coordinates === "(2, 3)") {return this.setState({yCoordinate: 3})}
-  else if (this.state.coordinates === "(3, 3)") {return this.setState({yCoordinate: 3})}
+  if (this.state.coordinates === "(1, 1)") {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.coordinates === "(2, 1)") {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.coordinates === "(3, 1)") {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.coordinates === "(1, 2)") {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.coordinates === "(2, 2)") {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.coordinates === "(3, 2)") {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.coordinates === "(1, 3)") {return this.setState({...this.state, yCoordinate: 3})}
+  else if (this.state.coordinates === "(2, 3)") {return this.setState({...this.state, yCoordinate: 3})}
+  else if (this.state.coordinates === "(3, 3)") {return this.setState({...this.state, yCoordinate: 3})}
 }
 
   reset = () => {
