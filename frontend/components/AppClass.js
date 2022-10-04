@@ -30,27 +30,27 @@ getXY = (coordinates) => {
 } 
 
 updateX = () => {
-  if (this.state.coordinates === "(1, 1)") {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 1)") {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 1)") {return this.setState({...this.state, xCoordinate: 3})}
-  else if (this.state.coordinates === "(1, 2)") {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 2)") {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 2)") {return this.setState({...this.state, xCoordinate: 3})}
-  else if (this.state.coordinates === "(1, 3)") {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 3)") {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 3)") {return this.setState({...this.state, xCoordinate: 3})}
+  if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, xCoordinate: 3})}
+  else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, xCoordinate: 3})}
+  else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, xCoordinate: 3})}
 }
 
 updateY = () => {
-  if (this.state.coordinates === "(1, 1)") {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(2, 1)") {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(3, 1)") {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.coordinates === "(1, 2)") {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(2, 2)") {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(3, 2)") {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.coordinates === "(1, 3)") {return this.setState({...this.state, yCoordinate: 3})}
-  else if (this.state.coordinates === "(2, 3)") {return this.setState({...this.state, yCoordinate: 3})}
-  else if (this.state.coordinates === "(3, 3)") {return this.setState({...this.state, yCoordinate: 3})}
+  if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, yCoordinate: 3})}
+  else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, yCoordinate: 3})}
+  else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, yCoordinate: 3})}
 }
 
   reset = () => {
@@ -193,6 +193,8 @@ postNewEmail= () => {
 
   onSubmit = (evt) => {
     evt.preventDefault()
+    this.updateX()
+    this.updateY()
     this.postNewEmail()
     this.reset()
     this.setState({...this.state, emailInput: ''})
@@ -225,10 +227,10 @@ postNewEmail= () => {
           <h3 id="message">{message}</h3>
         </div>
         <div id="keypad">
-          <button onClick={() => {this.handleLeftClick(); this.updateX(); this.updateY()}} id="left">LEFT</button>
-          <button onClick={() => {this.handleUpClick(); this.updateX(); this.updateY()}} id="up">UP</button>
-          <button onClick={() => {this.handleRightClick(); this.updateX(); this.updateY()}} id="right">RIGHT</button> 
-          <button onClick={() => {this.handleDownClick(); this.updateX(); this.updateY()}} id="down">DOWN</button>
+          <button onClick={this.handleLeftClick} id="left">LEFT</button>
+          <button onClick={this.handleUpClick} id="up">UP</button>
+          <button onClick={this.handleRightClick} id="right">RIGHT</button> 
+          <button onClick={this.handleDownClick} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
         </div>
         <form onSubmit={this.onSubmit}>
