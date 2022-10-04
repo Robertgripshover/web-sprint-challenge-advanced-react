@@ -85,8 +85,7 @@ const updateY = () => {
 // }
 
 const reset = () => {
-  setState({
-    indexOfB: 4,  
+  setState({ 
     message: '', 
     board: ['', '', '', '', 'B', '', '', '', ''],
     emailInput: '',

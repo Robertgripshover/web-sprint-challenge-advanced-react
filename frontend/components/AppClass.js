@@ -54,8 +54,7 @@ updateY = () => {
 }
 
   reset = () => {
-    this.setState({
-      indexOfB: 4,  
+    this.setState({  
       message: '', 
       board: ['', '', '', '', 'B', '', '', '', ''],
       totalMoves: 0,
