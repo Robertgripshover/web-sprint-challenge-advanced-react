@@ -29,28 +29,28 @@ getXY = (coordinates) => {
   else if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
 } 
 
-updateX = (xCoordinate) => {
-  if (this.state.coordinates === "(1, 1)") {return xCoordinate = 1}
-  else if (this.state.coordinates === "(2, 1)") {return xCoordinate = 2}
-  else if (this.state.coordinates === "(3, 1)") {return xCoordinate = 3}
-  else if (this.state.coordinates === "(1, 2)") {return xCoordinate = 1}
-  else if (this.state.coordinates === "(2, 2)") {return xCoordinate = 2}
-  else if (this.state.coordinates === "(3, 2)") {return xCoordinate = 3}
-  else if (this.state.coordinates === "(1, 3)") {return xCoordinate = 1}
-  else if (this.state.coordinates === "(2, 3)") {return xCoordinate = 2}
-  else if (this.state.coordinates === "(3, 3)") {return xCoordinate = 3}
+updateX = () => {
+  if (this.state.coordinates === "(1, 1)") {return this.setState({xCoordinate: 1})}
+  else if (this.state.coordinates === "(2, 1)") {return this.setState({xCoordinate: 2})}
+  else if (this.state.coordinates === "(3, 1)") {return this.setState({xCoordinate: 3})}
+  else if (this.state.coordinates === "(1, 2)") {return this.setState({xCoordinate: 1})}
+  else if (this.state.coordinates === "(2, 2)") {return this.setState({xCoordinate: 2})}
+  else if (this.state.coordinates === "(3, 2)") {return this.setState({xCoordinate: 3})}
+  else if (this.state.coordinates === "(1, 3)") {return this.setState({xCoordinate: 1})}
+  else if (this.state.coordinates === "(2, 3)") {return this.setState({xCoordinate: 2})}
+  else if (this.state.coordinates === "(3, 3)") {return this.setState({xCoordinate: 3})}
 }
 
-updateY = (yCoordinate) => {
-  if (this.state.coordinates === "(1, 1)") {return yCoordinate = 1}
-  else if (this.state.coordinates === "(2, 1)") {return yCoordinate = 1}
-  else if (this.state.coordinates === "(3, 1)") {return yCoordinate = 1}
-  else if (this.state.coordinates === "(1, 2)") {return yCoordinate = 2}
-  else if (this.state.coordinates === "(2, 2)") {return yCoordinate = 2}
-  else if (this.state.coordinates === "(3, 2)") {return yCoordinate = 2}
-  else if (this.state.coordinates === "(1, 3)") {return yCoordinate = 3}
-  else if (this.state.coordinates === "(2, 3)") {return yCoordinate = 3}
-  else if (this.state.coordinates === "(3, 3)") {return yCoordinate = 3}
+updateY = () => {
+  if (this.state.coordinates === "(1, 1)") {return this.setState({yCoordinate: 1})}
+  else if (this.state.coordinates === "(2, 1)") {return this.setState({yCoordinate: 1})}
+  else if (this.state.coordinates === "(3, 1)") {return this.setState({yCoordinate: 1})}
+  else if (this.state.coordinates === "(1, 2)") {return this.setState({yCoordinate: 2})}
+  else if (this.state.coordinates === "(2, 2)") {return this.setState({yCoordinate: 2})}
+  else if (this.state.coordinates === "(3, 2)") {return this.setState({yCoordinate: 2})}
+  else if (this.state.coordinates === "(1, 3)") {return this.setState({yCoordinate: 3})}
+  else if (this.state.coordinates === "(2, 3)") {return this.setState({yCoordinate: 3})}
+  else if (this.state.coordinates === "(3, 3)") {return this.setState({yCoordinate: 3})}
 }
 
   reset = () => {
@@ -174,8 +174,6 @@ updateY = (yCoordinate) => {
   onChangeOfEmail = (evt) => {
     const { value } = evt.target
     this.setState({ ...this.state, emailInput: value })
-    this.updateX()
-    this.updateY()
   }
 
 postNewEmail= () => {
@@ -228,10 +226,10 @@ postNewEmail= () => {
           <h3 id="message">{message}</h3>
         </div>
         <div id="keypad">
-          <button onClick={this.handleLeftClick} id="left">LEFT</button>
-          <button onClick={this.handleUpClick} id="up">UP</button>
-          <button onClick={this.handleRightClick} id="right">RIGHT</button> 
-          <button onClick={this.handleDownClick} id="down">DOWN</button>
+          <button onClick={() => {this.handleLeftClick(); this.updateX(); this.updateY()}} id="left">LEFT</button>
+          <button onClick={() => {this.handleUpClick(); this.updateX(); this.updateY()}} id="up">UP</button>
+          <button onClick={() => {this.handleRightClick(); this.updateX(); this.updateY()}} id="right">RIGHT</button> 
+          <button onClick={() => {this.handleDownClick(); this.updateX(); this.updateY()}} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
         </div>
         <form onSubmit={this.onSubmit}>
