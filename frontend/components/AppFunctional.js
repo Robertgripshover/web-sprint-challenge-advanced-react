@@ -34,29 +34,29 @@ const getXY = (coordinates) => {
 } 
 
 
-const updateX = () => {
-  if (state.coordinates === "(1, 1)") {return setState({...this.state, xCoordinate: 1})}
-  else if (state.coordinates === "(2, 1)") {return setState({...state, xCoordinate: 2})}
-  else if (state.coordinates === "(3, 1)") {return setState({...state, xCoordinate: 3})}
-  else if (state.coordinates === "(1, 2)") {return setState({...state, xCoordinate: 1})}
-  else if (state.coordinates === "(2, 2)") {return setState({...state, xCoordinate: 2})}
-  else if (state.coordinates === "(3, 2)") {return setState({...state, xCoordinate: 3})}
-  else if (state.coordinates === "(1, 3)") {return setState({...state, xCoordinate: 1})}
-  else if (state.coordinates === "(2, 3)") {return setState({...state, xCoordinate: 2})}
-  else if (state.coordinates === "(3, 3)") {return setState({...state, xCoordinate: 3})}
-}
+// const updateX = () => {
+//   if (state.coordinates === "(1, 1)") {return setState({...this.state, xCoordinate: 1})}
+//   else if (state.coordinates === "(2, 1)") {return setState({...state, xCoordinate: 2})}
+//   else if (state.coordinates === "(3, 1)") {return setState({...state, xCoordinate: 3})}
+//   else if (state.coordinates === "(1, 2)") {return setState({...state, xCoordinate: 1})}
+//   else if (state.coordinates === "(2, 2)") {return setState({...state, xCoordinate: 2})}
+//   else if (state.coordinates === "(3, 2)") {return setState({...state, xCoordinate: 3})}
+//   else if (state.coordinates === "(1, 3)") {return setState({...state, xCoordinate: 1})}
+//   else if (state.coordinates === "(2, 3)") {return setState({...state, xCoordinate: 2})}
+//   else if (state.coordinates === "(3, 3)") {return setState({...state, xCoordinate: 3})}
+// }
 
-const updateY = () => {
-  if (state.coordinates === "(1, 1)") {return setState({...state, yCoordinate: 1})}
-  else if (state.coordinates === "(2, 1)") {return setState({...state, yCoordinate: 1})}
-  else if (state.coordinates === "(3, 1)") {return setState({...state, yCoordinate: 1})}
-  else if (state.coordinates === "(1, 2)") {return setState({...state, yCoordinate: 2})}
-  else if (state.coordinates === "(2, 2)") {return setState({...state, yCoordinate: 2})}
-  else if (state.coordinates === "(3, 2)") {return setState({...state, yCoordinate: 2})}
-  else if (state.coordinates === "(1, 3)") {return setState({...state, yCoordinate: 3})}
-  else if (state.coordinates === "(2, 3)") {return setState({...state, yCoordinate: 3})}
-  else if (state.coordinates === "(3, 3)") {return setState({...state, yCoordinate: 3})}
-}
+// const updateY = () => {
+//   if (state.coordinates === "(1, 1)") {return setState({...state, yCoordinate: 1})}
+//   else if (state.coordinates === "(2, 1)") {return setState({...state, yCoordinate: 1})}
+//   else if (state.coordinates === "(3, 1)") {return setState({...state, yCoordinate: 1})}
+//   else if (state.coordinates === "(1, 2)") {return setState({...state, yCoordinate: 2})}
+//   else if (state.coordinates === "(2, 2)") {return setState({...state, yCoordinate: 2})}
+//   else if (state.coordinates === "(3, 2)") {return setState({...state, yCoordinate: 2})}
+//   else if (state.coordinates === "(1, 3)") {return setState({...state, yCoordinate: 3})}
+//   else if (state.coordinates === "(2, 3)") {return setState({...state, yCoordinate: 3})}
+//   else if (state.coordinates === "(3, 3)") {return setState({...state, yCoordinate: 3})}
+// }
 
 
 
@@ -205,8 +205,8 @@ const handleDownClick = () => {
 const onChangeOfEmail = (evt) => {
   const { value } = evt.target
   setState({ ...state, emailInput: value })
-  updateX()
-  updateY()
+  // updateX()
+  // updateY()
 }
 
 const postNewEmail= () => {

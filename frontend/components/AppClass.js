@@ -29,29 +29,29 @@ getXY = (coordinates) => {
   else if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
 } 
 
-updateX = () => {
-  if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, xCoordinate: 3})}
-  else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, xCoordinate: 3})}
-  else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, xCoordinate: 3})}
-}
+// updateX = () => {
+//   if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, xCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, xCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, xCoordinate: 3})}
+//   else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, xCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, xCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, xCoordinate: 3})}
+//   else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, xCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, xCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, xCoordinate: 3})}
+// }
 
-updateY = () => {
-  if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, yCoordinate: 3})}
-  else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, yCoordinate: 3})}
-  else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, yCoordinate: 3})}
-}
+// updateY = () => {
+//   if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, yCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, yCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, yCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, yCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, yCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, yCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, yCoordinate: 3})}
+//   else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, yCoordinate: 3})}
+//   else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, yCoordinate: 3})}
+// }
 
   reset = () => {
     this.setState({  
@@ -193,8 +193,8 @@ postNewEmail= () => {
 
   onSubmit = (evt) => {
     evt.preventDefault()
-    this.updateX()
-    this.updateY()
+    // this.updateX()
+    // this.updateY()
     this.postNewEmail()
     this.reset()
     this.setState({...this.state, emailInput: ''})
