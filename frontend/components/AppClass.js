@@ -29,42 +29,64 @@ getXY = (coordinates) => {
   else if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
 } 
 
-// updateX = () => {
-//   if (this.state.coordinates === "(1, 1)") {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.coordinates === "(2, 1)") {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.coordinates === "(3, 1)") {return this.setState({...this.state, xCoordinate: 3})}
-//   else if (this.state.coordinates === "(1, 2)") {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.coordinates === "(2, 2)") {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.coordinates === "(3, 2)") {return this.setState({...this.state, xCoordinate: 3})}
-//   else if (this.state.coordinates === "(1, 3)") {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.coordinates === "(2, 3)") {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.coordinates === "(3, 3)") {return this.setState({...this.state, xCoordinate: 3})}
-// }
+//these two below functions are working visually
 
 updateY = () => {
-  if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, yCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, yCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, yCoordinate: 3})}
-  else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, yCoordinate: 3})}
-  else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, yCoordinate: 3})}
+  if (this.state.board.indexOf('B') === 0) {return 1}
+  else if (this.state.board.indexOf('B') === 1) {return 1}
+  else if (this.state.board.indexOf('B') === 2) {return 1}
+  else if (this.state.board.indexOf('B') === 3) {return 2}
+  else if (this.state.board.indexOf('B') === 4) {return 2}
+  else if (this.state.board.indexOf('B') === 5) {return 2}
+  else if (this.state.board.indexOf('B') === 6) {return 3}
+  else if (this.state.board.indexOf('B') === 7) {return 3}
+  else if (this.state.board.indexOf('B') === 8) {return 3}
 }
-
 
 updateX = () => {
-  if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, xCoordinate: 3})}
-  else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, xCoordinate: 3})}
-  else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, xCoordinate: 1})}
-  else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, xCoordinate: 2})}
-  else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, xCoordinate: 3})}
+  if (this.state.board.indexOf('B') === 0) {return 1}
+  else if (this.state.board.indexOf('B') === 1) {return 2}
+  else if (this.state.board.indexOf('B') === 2) {return 3}
+  else if (this.state.board.indexOf('B') === 3) {return 1}
+  else if (this.state.board.indexOf('B') === 4) {return 2}
+  else if (this.state.board.indexOf('B') === 5) {return 3}
+  else if (this.state.board.indexOf('B') === 6) {return 1}
+  else if (this.state.board.indexOf('B') === 7) {return 2}
+  else if (this.state.board.indexOf('B') === 8) {return 3}
 }
+
+updateXAndY = () => {
+const newY = this.updateY()
+const newX = this.updateX()
+this.setState({...this.state, 
+  xCoordinate: newX,
+  yCoordinate: newY
+})
+}
+// updateY = () => {
+//   if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, yCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, yCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, yCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, yCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, yCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, yCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, yCoordinate: 3})}
+//   else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, yCoordinate: 3})}
+//   else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, yCoordinate: 3})}
+// }
+
+
+// updateX = () => {
+//   if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, xCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, xCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, xCoordinate: 3})}
+//   else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, xCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, xCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, xCoordinate: 3})}
+//   else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, xCoordinate: 1})}
+//   else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, xCoordinate: 2})}
+//   else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, xCoordinate: 3})}
+// }
 
   reset = () => {
     this.setState({  
@@ -112,7 +134,10 @@ updateX = () => {
   } 
 
   incrementTotalMoves = () => {
-    this.setState({totalMoves: this.state.totalMoves + 1})
+
+    this.setState({totalMoves: this.state.totalMoves + 1, 
+
+    })
   }
 
   moveRight = () => {
@@ -136,7 +161,6 @@ updateX = () => {
     this.moveBDownWithUnshiftAndPop()
     this.incrementTotalMoves()
   } 
-
   //I need logic that will say, "if the 'message' part of state has the text
   //'cant go right','cant go left','cant go up','cant go down' 
   //THEN you can clear the 'message' the next time the button is clicked"
@@ -149,13 +173,38 @@ updateX = () => {
     else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
   }
 
+  // runUpdateRight = () => {
+  //   this.moveRight
+  //   this.updateX
+  //   this.updateY
+  // }
+
+  // runUpdateLeft = () => {
+  //   this.moveLeft
+  //   this.updateX
+  //   this.updateY
+  // }
+
+  // runUpdateDown = () => {
+  //   this.moveDown
+  //   this.updateX
+  //   this.updateY
+  // }
+
+  // runUpdateUp = () => {
+  //   this.moveUp
+  //   this.updateX
+  //   this.updateY
+  // }
 
   handleRightClick = () => {
     const newMessage = "You can't go right"
     if (this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 5) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
-    else {this.moveRight()}
+    else {
+      this.moveRight();
+         }
     
   }
 
@@ -164,7 +213,9 @@ updateX = () => {
     if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 3) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
-    else {this.moveLeft()}
+    else {
+      this.moveLeft();
+         }
   }
 
   handleUpClick = () => {
@@ -172,7 +223,9 @@ updateX = () => {
     if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 1) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
-    else {this.moveUp()}
+    else {
+      this.moveUp();
+         }
   }
 
   handleDownClick = () => {
@@ -180,16 +233,19 @@ updateX = () => {
     if (this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 7) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
-    else {this.moveDown()}
-  }
-
-  onChangeOfCoordinates = () => {
-
+    else {
+      this.moveDown();
+         }
   }
 
   onChangeOfEmail = (evt) => {
+    const newY = this.updateY()
+    const newX = this.updateX()
     const { value } = evt.target
-    this.setState({ ...this.state, emailInput: value })
+    this.setState({ ...this.state, emailInput: value, 
+      xCoordinate: newX,
+      yCoordinate: newY
+     })
   }
 
 postNewEmail= () => {
@@ -212,7 +268,8 @@ postNewEmail= () => {
     evt.preventDefault()
     this.postNewEmail()
     this.reset()
-    this.setState({...this.state, emailInput: ''})
+    this.setState({...this.state, emailInput: '', 
+  })
   } 
 
   render() {
@@ -251,8 +308,8 @@ postNewEmail= () => {
           <button onClick={this.handleDownClick} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
       {/*This is an experiment! VVV these buttons VVV*/}
-          <button onClick={this.updateX} id="updateX function">update X~</button>
-          <button onClick={this.updateY} id="updateY function">update Y~</button>
+          <button onClick={this.updateXAndY} id="updateX function">update X and Y~</button>
+          
       {/*This is an experiment! ^^^ these buttons ^^^*/}
         </div>
         <form onSubmit={this.onSubmit}>
