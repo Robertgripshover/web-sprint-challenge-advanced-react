@@ -29,29 +29,29 @@ getXY = (coordinates) => {
   else if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
 } 
 
-// updateX = () => {
-//   if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, xCoordinate: 3})}
-//   else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, xCoordinate: 3})}
-//   else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, xCoordinate: 3})}
-// }
+updateX = () => {
+  if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, xCoordinate: 3})}
+  else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, xCoordinate: 3})}
+  else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, xCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, xCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, xCoordinate: 3})}
+}
 
-// updateY = () => {
-//   if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, yCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, yCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, yCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, yCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, yCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, yCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, yCoordinate: 3})}
-//   else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, yCoordinate: 3})}
-//   else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, yCoordinate: 3})}
-// }
+updateY = () => {
+  if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, yCoordinate: 1})}
+  else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, yCoordinate: 2})}
+  else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, yCoordinate: 3})}
+  else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, yCoordinate: 3})}
+  else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, yCoordinate: 3})}
+}
 
   reset = () => {
     this.setState({  
@@ -142,7 +142,7 @@ getXY = (coordinates) => {
     if (this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 5) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
-    else {return this.moveRight()}
+    else {this.moveRight()}
     
   }
 
@@ -151,7 +151,7 @@ getXY = (coordinates) => {
     if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 3) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
-    else {return this.moveLeft()}
+    else {this.moveLeft()}
   }
 
   handleUpClick = () => {
@@ -167,11 +167,13 @@ getXY = (coordinates) => {
     if (this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 7) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
-    else {return this.moveDown()}
+    else {this.moveDown()}
   }
 
   onChangeOfEmail = (evt) => {
     const { value } = evt.target
+    this.updateX()
+    this.updateX()
     this.setState({ ...this.state, emailInput: value })
   }
 
@@ -193,8 +195,6 @@ postNewEmail= () => {
 
   onSubmit = (evt) => {
     evt.preventDefault()
-    // this.updateX()
-    // this.updateY()
     this.postNewEmail()
     this.reset()
     this.setState({...this.state, emailInput: ''})
@@ -203,13 +203,16 @@ postNewEmail= () => {
   render() {
 
     const { className } = this.props
-    const { totalMoves, board, indexOfB, message } = this.state
+    const { totalMoves, board, indexOfB, message, xCoordinate, yCoordinate } = this.state
 
     return (
       <div id="wrapper" className={className}>
         <div className="info">
           <h3 id="coordinates">{`Coordinates ${this.getXY(indexOfB)}`}</h3>
           <h3 id="steps">You moved {totalMoves} times</h3>
+          {/*This is an experiment! VVV this h3 tag VVV*/}
+          <h3 id="testingForXAndY">The X = {xCoordinate} and the Y = {yCoordinate} </h3> {/*<<<--- remove this tag once complete!!!*/}
+          {/*This is an experiment! ^^^ this h3 tag ^^^*/}
         </div>
 
       <div id="grid">
