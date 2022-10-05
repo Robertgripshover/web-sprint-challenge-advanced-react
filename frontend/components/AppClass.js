@@ -275,17 +275,14 @@ postNewEmail= () => {
   render() {
 
     const { className } = this.props
-    const { totalMoves, board, indexOfB, message, xCoordinate, yCoordinate } = this.state
+    const { totalMoves, board, indexOfB, message} = this.state
 
     return (
       <div id="wrapper" className={className}>
         <div className="info">
           <h3 id="coordinates">{`Coordinates ${this.getXY(indexOfB)}`}</h3>
-          <h3 id="steps">You moved {totalMoves} times</h3>
-          {/*This is an experiment! VVV this h3 tag VVV*/}
-          <h3 id="testingForXAndY">The X = {xCoordinate} and the Y = {yCoordinate} </h3> {/*<<<--- remove this tag once complete!!!*/}
-          {/*This is an experiment! ^^^ this h3 tag ^^^*/}
-        </div>
+          <h3 id="steps">You moved {`${totalMoves}` == 1 ? `${totalMoves} ${'time'}`: `${totalMoves} ${'times'}`}</h3>
+         </div>
 
       <div id="grid">
 
@@ -307,10 +304,6 @@ postNewEmail= () => {
           <button onClick={this.handleRightClick} id="right">RIGHT</button> 
           <button onClick={this.handleDownClick} id="down">DOWN</button>
           <button onClick={this.reset} id="reset">reset</button>
-      {/*This is an experiment! VVV these buttons VVV*/}
-          <button onClick={this.updateXAndY} id="updateX function">update X and Y~</button>
-          
-      {/*This is an experiment! ^^^ these buttons ^^^*/}
         </div>
         <form onSubmit={this.onSubmit}>
           <input value={this.state.emailInput} onChange={this.onChangeOfEmail} id="email" type="email" placeholder="type email"></input>  

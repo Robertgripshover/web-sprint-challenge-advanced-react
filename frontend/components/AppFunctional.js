@@ -214,7 +214,7 @@ const onSubmit = (evt) => {
     <div id="wrapper" className={props.className}>
         <div className="info">
           <h3 id="coordinates">{`Coordinates ${getXY(state.indexOfB)}`}</h3>
-          <h3 id="steps">You moved {count} times</h3>
+          <h3 id="steps">You moved {`${count}` == 1 ? `${count} ${'time'}`: `${count} ${'times'}`}</h3>
         </div>
 
       <div id="grid">
