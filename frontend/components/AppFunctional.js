@@ -182,12 +182,18 @@ const postNewEmail= () => {
       })
 } 
 
+  // const onSubmit = (evt) => {
+  //   evt.preventDefault()
+  //   postNewEmail()
+  //   setState({...state, emailInput: ""})
+  // }
+
   const onSubmit = (evt) => {
     evt.preventDefault()
     postNewEmail()
-    reset()
     setState({...state, emailInput: ''})
   }
+
 
   return (
     <div id="wrapper" className={props.className}>

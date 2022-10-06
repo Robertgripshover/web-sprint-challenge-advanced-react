@@ -185,9 +185,7 @@ export default class AppClass extends React.Component {
   onSubmit = (evt) => {
     evt.preventDefault()
     this.postNewEmail()
-    this.reset()
-    this.setState({...this.state, emailInput: '', 
-    })
+    this.setState({...this.state, emailInput: ''})
   } 
 
   render() {
