@@ -55,38 +55,15 @@ updateX = () => {
   else if (this.state.board.indexOf('B') === 8) {return 3}
 }
 
-updateXAndY = () => {
-const newY = this.updateY()
-const newX = this.updateX()
-this.setState({...this.state, 
-  xCoordinate: newX,
-  yCoordinate: newY
-})
-}
-// updateY = () => {
-//   if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, yCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, yCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, yCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, yCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, yCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, yCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, yCoordinate: 3})}
-//   else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, yCoordinate: 3})}
-//   else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, yCoordinate: 3})}
+// updateXAndY = () => {
+// const newY = this.updateY()
+// const newX = this.updateX()
+// this.setState({...this.state, 
+//   xCoordinate: newX,
+//   yCoordinate: newY
+// })
 // }
 
-
-// updateX = () => {
-//   if (this.state.board.indexOf('B') === 0) {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 1) {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 2) {return this.setState({...this.state, xCoordinate: 3})}
-//   else if (this.state.board.indexOf('B') === 3) {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 4) {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 5) {return this.setState({...this.state, xCoordinate: 3})}
-//   else if (this.state.board.indexOf('B') === 6) {return this.setState({...this.state, xCoordinate: 1})}
-//   else if (this.state.board.indexOf('B') === 7) {return this.setState({...this.state, xCoordinate: 2})}
-//   else if (this.state.board.indexOf('B') === 8) {return this.setState({...this.state, xCoordinate: 3})}
-// }
 
   reset = () => {
     this.setState({  
@@ -165,13 +142,13 @@ this.setState({...this.state,
   //'cant go right','cant go left','cant go up','cant go down' 
   //THEN you can clear the 'message' the next time the button is clicked"
 
-  clearMovementMessage = () => {
-    const clearedMessage = ""
-    if (this.state.message === "You can't go right") {return this.setState({...this.state, message: clearedMessage})}
-    else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
-    else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
-    else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
-  }
+  // clearMovementMessage = () => {
+  //   const clearedMessage = ""
+  //   if (this.state.message === "You can't go right") {return this.setState({...this.state, message: clearedMessage})}
+  //   else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
+  //   else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
+  //   else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
+  // }
 
   // runUpdateRight = () => {
   //   this.moveRight
@@ -248,7 +225,7 @@ this.setState({...this.state,
      })
   }
 
-postNewEmail= () => {
+  postNewEmail= () => {
     axios.post(PostURL,
        {x: this.state.xCoordinate,
         y: this.state.yCoordinate,
@@ -269,7 +246,7 @@ postNewEmail= () => {
     this.postNewEmail()
     this.reset()
     this.setState({...this.state, emailInput: '', 
-  })
+    })
   } 
 
   render() {

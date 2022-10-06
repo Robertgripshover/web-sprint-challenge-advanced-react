@@ -15,9 +15,6 @@ export default function AppFunctional(props) {
     yCoordinate: 1
 })
 
-//
-//EXPERIMENTAL
-//
   const [count, setCount] = useState(0)
 
   
@@ -113,13 +110,13 @@ const incrementTotalMoves = () => {
   //'cant go right','cant go left','cant go up','cant go down' 
   //THEN you can clear the 'message' the next time the button is clicked"
 
-const clearMovementMessage = () => {
-    const clearedMessage = ""
-    if (this.state.message === "You can't go right") {return this.setState({...this.state, message: clearedMessage})}
-    else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
-    else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
-    else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
-  }
+// const clearMovementMessage = () => {
+//     const clearedMessage = ""
+//     if (this.state.message === "You can't go right") {return this.setState({...this.state, message: clearedMessage})}
+//     else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
+//     else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
+//     else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
+//   }
 
 const moveRight = () => {
   removeItemFromFrontOfArray()
@@ -184,7 +181,6 @@ const onChangeOfEmail = (evt) => {
     xCoordinate: newX,
     yCoordinate: newY
   })
-
 }
 
 const postNewEmail= () => {
