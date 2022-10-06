@@ -1,7 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 
-
 const PostURL = 'http://localhost:9000/api/result'
 
 export default function AppFunctional(props) {
@@ -17,7 +16,6 @@ export default function AppFunctional(props) {
 
   const [count, setCount] = useState(0)
 
-  
 const getXY = (coordinates) => {
   if (state.board.indexOf('B') === 0) {return coordinates = "(1, 1)"}
   else if (state.board.indexOf('B') === 1) {return coordinates = "(2, 1)"}
@@ -53,7 +51,6 @@ const updateX = () => {
   else if (state.board.indexOf('B') === 7) {return 2}
   else if (state.board.indexOf('B') === 8) {return 3}
 }
-
 
 const reset = () => {
   setState({ 
@@ -100,23 +97,9 @@ const removeItemFromFrontOfArray = () => {
   setState({ board: state.board.slice(1)})
 } 
 
-
 const incrementTotalMoves = () => {
   setCount(count + 1)
 }
-
-
-  //I need logic that will say, "if the 'message' part of state has the text
-  //'cant go right','cant go left','cant go up','cant go down' 
-  //THEN you can clear the 'message' the next time the button is clicked"
-
-// const clearMovementMessage = () => {
-//     const clearedMessage = ""
-//     if (this.state.message === "You can't go right") {return this.setState({...this.state, message: clearedMessage})}
-//     else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
-//     else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
-//     else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
-//   }
 
 const moveRight = () => {
   removeItemFromFrontOfArray()

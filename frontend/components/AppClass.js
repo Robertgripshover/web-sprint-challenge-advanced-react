@@ -16,54 +16,42 @@ export default class AppClass extends React.Component {
   }
 
 
-getXY = (coordinates) => {
-  
-  if (this.state.board.indexOf('B') === 0) {return coordinates = "(1, 1)"}
-  else if (this.state.board.indexOf('B') === 1) {return coordinates = "(2, 1)"}
-  else if (this.state.board.indexOf('B') === 2) {return coordinates = "(3, 1)"}
-  else if (this.state.board.indexOf('B') === 3) {return coordinates = "(1, 2)"}
-  else if (this.state.board.indexOf('B') === 4) {return coordinates = "(2, 2)"}
-  else if (this.state.board.indexOf('B') === 5) {return coordinates = "(3, 2)"}
-  else if (this.state.board.indexOf('B') === 6) {return coordinates = "(1, 3)"}
-  else if (this.state.board.indexOf('B') === 7) {return coordinates = "(2, 3)"}
-  else if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
-} 
+  getXY = (coordinates) => {
+    
+    if (this.state.board.indexOf('B') === 0) {return coordinates = "(1, 1)"}
+    else if (this.state.board.indexOf('B') === 1) {return coordinates = "(2, 1)"}
+    else if (this.state.board.indexOf('B') === 2) {return coordinates = "(3, 1)"}
+    else if (this.state.board.indexOf('B') === 3) {return coordinates = "(1, 2)"}
+    else if (this.state.board.indexOf('B') === 4) {return coordinates = "(2, 2)"}
+    else if (this.state.board.indexOf('B') === 5) {return coordinates = "(3, 2)"}
+    else if (this.state.board.indexOf('B') === 6) {return coordinates = "(1, 3)"}
+    else if (this.state.board.indexOf('B') === 7) {return coordinates = "(2, 3)"}
+    else if (this.state.board.indexOf('B') === 8) {return coordinates = "(3, 3)"}
+  } 
 
-//these two below functions are working visually
+  updateY = () => {
+    if (this.state.board.indexOf('B') === 0) {return 1}
+    else if (this.state.board.indexOf('B') === 1) {return 1}
+    else if (this.state.board.indexOf('B') === 2) {return 1}
+    else if (this.state.board.indexOf('B') === 3) {return 2}
+    else if (this.state.board.indexOf('B') === 4) {return 2}
+    else if (this.state.board.indexOf('B') === 5) {return 2}
+    else if (this.state.board.indexOf('B') === 6) {return 3}
+    else if (this.state.board.indexOf('B') === 7) {return 3}
+    else if (this.state.board.indexOf('B') === 8) {return 3}
+  }
 
-updateY = () => {
-  if (this.state.board.indexOf('B') === 0) {return 1}
-  else if (this.state.board.indexOf('B') === 1) {return 1}
-  else if (this.state.board.indexOf('B') === 2) {return 1}
-  else if (this.state.board.indexOf('B') === 3) {return 2}
-  else if (this.state.board.indexOf('B') === 4) {return 2}
-  else if (this.state.board.indexOf('B') === 5) {return 2}
-  else if (this.state.board.indexOf('B') === 6) {return 3}
-  else if (this.state.board.indexOf('B') === 7) {return 3}
-  else if (this.state.board.indexOf('B') === 8) {return 3}
-}
-
-updateX = () => {
-  if (this.state.board.indexOf('B') === 0) {return 1}
-  else if (this.state.board.indexOf('B') === 1) {return 2}
-  else if (this.state.board.indexOf('B') === 2) {return 3}
-  else if (this.state.board.indexOf('B') === 3) {return 1}
-  else if (this.state.board.indexOf('B') === 4) {return 2}
-  else if (this.state.board.indexOf('B') === 5) {return 3}
-  else if (this.state.board.indexOf('B') === 6) {return 1}
-  else if (this.state.board.indexOf('B') === 7) {return 2}
-  else if (this.state.board.indexOf('B') === 8) {return 3}
-}
-
-// updateXAndY = () => {
-// const newY = this.updateY()
-// const newX = this.updateX()
-// this.setState({...this.state, 
-//   xCoordinate: newX,
-//   yCoordinate: newY
-// })
-// }
-
+  updateX = () => {
+    if (this.state.board.indexOf('B') === 0) {return 1}
+    else if (this.state.board.indexOf('B') === 1) {return 2}
+    else if (this.state.board.indexOf('B') === 2) {return 3}
+    else if (this.state.board.indexOf('B') === 3) {return 1}
+    else if (this.state.board.indexOf('B') === 4) {return 2}
+    else if (this.state.board.indexOf('B') === 5) {return 3}
+    else if (this.state.board.indexOf('B') === 6) {return 1}
+    else if (this.state.board.indexOf('B') === 7) {return 2}
+    else if (this.state.board.indexOf('B') === 8) {return 3}
+  }
 
   reset = () => {
     this.setState({  
@@ -111,9 +99,7 @@ updateX = () => {
   } 
 
   incrementTotalMoves = () => {
-
     this.setState({totalMoves: this.state.totalMoves + 1, 
-
     })
   }
 
@@ -138,51 +124,13 @@ updateX = () => {
     this.moveBDownWithUnshiftAndPop()
     this.incrementTotalMoves()
   } 
-  //I need logic that will say, "if the 'message' part of state has the text
-  //'cant go right','cant go left','cant go up','cant go down' 
-  //THEN you can clear the 'message' the next time the button is clicked"
-
-  // clearMovementMessage = () => {
-  //   const clearedMessage = ""
-  //   if (this.state.message === "You can't go right") {return this.setState({...this.state, message: clearedMessage})}
-  //   else if(this.state.message === "You can't go left") {return this.setState({...this.state, message: clearedMessage})}
-  //   else if(this.state.message === "You can't go up") {return this.setState({...this.state, message: clearedMessage})}
-  //   else if(this.state.message === "You can't go down") {return this.setState({...this.state, message: clearedMessage})}
-  // }
-
-  // runUpdateRight = () => {
-  //   this.moveRight
-  //   this.updateX
-  //   this.updateY
-  // }
-
-  // runUpdateLeft = () => {
-  //   this.moveLeft
-  //   this.updateX
-  //   this.updateY
-  // }
-
-  // runUpdateDown = () => {
-  //   this.moveDown
-  //   this.updateX
-  //   this.updateY
-  // }
-
-  // runUpdateUp = () => {
-  //   this.moveUp
-  //   this.updateX
-  //   this.updateY
-  // }
 
   handleRightClick = () => {
     const newMessage = "You can't go right"
     if (this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 5) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
-    else {
-      this.moveRight();
-         }
-    
+    else {this.moveRight()}
   }
 
   handleLeftClick = () => {
@@ -190,9 +138,7 @@ updateX = () => {
     if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 3) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
-    else {
-      this.moveLeft();
-         }
+    else {this.moveLeft()}
   }
 
   handleUpClick = () => {
@@ -200,9 +146,7 @@ updateX = () => {
     if (this.state.board.indexOf('B', 0) === 0) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 1) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 2) {return this.setState({...this.state, message: newMessage})}
-    else {
-      this.moveUp();
-         }
+    else {this.moveUp()}
   }
 
   handleDownClick = () => {
@@ -210,9 +154,7 @@ updateX = () => {
     if (this.state.board.indexOf('B', 0) === 6) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 7) {return this.setState({...this.state, message: newMessage})}
     else if(this.state.board.indexOf('B', 0) === 8) {return this.setState({...this.state, message: newMessage})}
-    else {
-      this.moveDown();
-         }
+    else {this.moveDown()}
   }
 
   onChangeOfEmail = (evt) => {
