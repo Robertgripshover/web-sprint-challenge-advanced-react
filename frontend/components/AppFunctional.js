@@ -174,7 +174,10 @@ const postNewEmail= () => {
       email: state.emailInput })
       .then(res => {
         console.log(res.data)
-        setState({...state, message: res.data.message})
+        setState({...state,
+           message: res.data.message,
+           emailInput: ''
+        })
       })
       .catch(err => {
         console.log(err.message)
@@ -182,18 +185,10 @@ const postNewEmail= () => {
       })
 } 
 
-  // const onSubmit = (evt) => {
-  //   evt.preventDefault()
-  //   postNewEmail()
-  //   setState({...state, emailInput: ""})
-  // }
-
-  const onSubmit = (evt) => {
-    evt.preventDefault()
-    postNewEmail()
-    setState({...state, emailInput: ''})
-  }
-
+const onSubmit = (evt) => {
+  evt.preventDefault()
+  postNewEmail()  
+}
 
   return (
     <div id="wrapper" className={props.className}>
