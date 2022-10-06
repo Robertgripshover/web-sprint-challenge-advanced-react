@@ -14,8 +14,7 @@ export default class AppClass extends React.Component {
       xCoordinate: 1,
       yCoordinate: 1
   }
-
-
+  
   getXY = (coordinates) => {
     
     if (this.state.board.indexOf('B') === 0) {return coordinates = "(1, 1)"}
